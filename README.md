@@ -1,0 +1,129 @@
+# ISSOFT 홈페이지 리뉴얼 및 배포 종합 가이드
+
+이 프로젝트는 (주)이즈소프트(ISSOFT)의 홈페이지를 최신 웹 트렌드 및 테크니컬 브랜딩에 맞춰 Astro 프레임워크와 프리미엄 디자인 시스템을 적용하여 전면 리뉴얼한 정적 웹사이트 프로젝트입니다.
+
+---
+
+## 1. 개발 스택 (Development Stack)
+
+* **Core Framework**: Astro v4 (Static-Site Output Mode)
+  - HTML 컴포넌트화 및 빌드 시점의 완전한 정적 HTML 컴파일로 초고속 로딩 속도 및 대역폭 최소화 보장.
+* **Styling**: Vanilla CSS (CSS3 variables, Grid / Flexbox Layout)
+  - 서드파티 유틸리티 프레임워크 의존성을 제거하여 최대 속도와 유연한 커스터마이징 제공.
+* **Logic**: Vanilla JavaScript
+  - Zero-JS 원칙을 지향하여, 탭 인터랙션 등은 순수 CSS(라디오 버튼 해킹 기법)로 구현하고 최소한의 전처리(URL 해시 탭 동기화 등)에만 바닐라 스크립트를 사용하여 가벼운 클라이언트 풋프린트를 유지.
+* **Build Tool**: Vite (Astro 내장 빌더)
+
+---
+
+## 2. 웹사이트 디렉토리 구조 (Directory Structure)
+
+```bash
+HomePage_Renewal/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions 자동 배포 파이프라인
+├── .gitignore                  # 루트 레벨 Git 추적 제외 설정 (node_modules, dist 등)
+├── README.md                   # 리뉴얼 가이드 및 매뉴얼
+└── issoft-renewal/             # Astro 실 개발 소스 디렉토리
+    ├── src/
+    │   ├── components/
+    │   │   ├── Header.astro    # 네비게이션, 모바일 토글, 다국어 탭 해시 연동 포함
+    │   │   └── Footer.astro    # 푸터 정보 및 고해상도 CNAME 투명 로고 배치
+    │   ├── layouts/
+    │   │   └── BaseLayout.astro # SEO 메타태그, canonical/hreflang 매핑, JSON-LD 조직 구조 스키마
+    │   ├── pages/
+    │   │   ├── index.astro     # 국문 메인 (CSS 그라디언트 글로우, 솔루션 카드 연동)
+    │   │   ├── about.astro     # 국문 회사소개 (CSS 조직도, 편지 형태 인사말 카드, 인증 뱃지)
+    │   │   ├── services.astro  # 국문 사업안내 (MICS 테이블, SQM 기능 카드, 아키텍처 다이어그램)
+    │   │   ├── portfolio.astro # 국문 구축사례 (가로 행 레이아웃, CASE 제거)
+    │   │   ├── history.astro   # 국문 연혁 (2016 스마트공장 공급기업 추가)
+    │   │   ├── contact.astro   # 국문 문의하기 (카카오맵 네임핀 검색 쿼리 연동)
+    │   │   └── en/             # 영문 페이지군 (국문과 1:1 대칭 매핑)
+    │   └── styles/
+    │       └── global.css      # 디자인 시스템 토큰(색상 변수, 반응형 여백, 프리미엄 쉐도우)
+    ├── public/
+    │   ├── CNAME               # GitHub Pages 커스텀 도메인 매핑 (issoft.kr)
+    │   ├── favicon.ico         # 원본 1:1 비율을 유지한 정방형 파비콘 이미지
+    │   ├── robots.txt          # 검색 로봇 수집 규칙 및 sitemap 주소 지정
+    │   └── images/             # 로고, 파트너 로고 및 아키텍처 이미지 에셋
+    ├── astro.config.mjs        # 배포 주소 및 Sitemap 플러그인 설정
+    └── package.json            # 패키지 빌드 명세
+```
+
+---
+
+## 3. 세부 리뉴얼 및 피드백 반영 내역
+
+### 1) UI/UX 디자인 개선
+* **어색한 AI 그래픽 제거**: 메인 페이지의 AI 생성풍 이미지들을 제거하고, 추상적인 오렌지/옐로우 글로우 그라디언트 블러(Abstract Radial Glow Blur) 효과를 순수 CSS로 코딩하여 차분하고 세련된 테크 브랜딩 분위기를 구현했습니다.
+* **메인 솔루션 카드 탭 자동 활성화**: 메인 페이지에서 특정 솔루션 카드를 클릭하여 이동할 때, 사업안내 페이지 해당 탭의 라디오 버튼이 자동으로 체크 활성화되도록 바닐라 JS 해시 파서(URL Hash Parser) 로직을 탑재했습니다.
+* **메인 히어로 영역 높이 축소 & 가로폭 개행 방지**: 메인 상단 텍스트 영역의 지나치게 큰 높이를 최적화하고, 가로폭 제한으로 한두 글자만 어색하게 개행되던 텍스트들에 `word-break: keep-all` 처리를 완비했습니다.
+* **파비콘 비율 찌그러짐 해소**: 58x36 직사각형 로고의 좌우가 늘어나 찌그러지던 문제를 상하 여백 패딩을 보정한 58x58 정방형(Square) 에셋으로 재생성하여 온전한 원본 비율을 확보했습니다.
+
+### 2) 회사소개(About) 페이지 고도화
+* **인사말 편지글 카드화**: 인사말 좌측 영역을 마치 정갈한 편지글 문서 형태의 질감으로 입체화하고, 제목 바로 밑에 이즈소프트 시그니처 웜그라디언트 데코 라인(Title Underline)을 매핑했습니다. "이즈소프트 임직원 일동" 서명 영역은 inline 특성을 제거하고 블록화하여 위아래 쾌적한 24px의 마진 공간을 확보했습니다.
+* **우측 CI 및 공식 인증 배치 비율 조율**: 우측 단 ci 이미지를 90% 크기(높이 110px 한도)로 듬직하게 키우고 그 밑에 `(주)이즈소프트` 사명을 18px 엑스트라 볼드 폰트로 뚜렷하게 배치했습니다. 아래쪽의 스마트공장 공식 인증 카드는 세로 여백 과다 노출을 방지하기 위해 `flex` 지분을 `1.1`로 밸런싱하고, 제목과 상세 정보 간 쾌적한 16px의 한 줄 공백을 추가했으며, 좁은 단에서 한글 단어가 깨지지 않도록 `word-break: keep-all`을 완비했습니다.
+* **반응형 조직도(Org Tree)**: 이미지 대신 반응형 HTML/CSS 계통 조직도로 완전히 새로 구성하여 모바일에서도 깨지지 않는 깨끗한 텍스트 가시성을 확보했습니다.
+
+### 3) 사업안내(Services) 페이지 디테일 보완
+* **MICS 설비제어 하단 표 리디자인**: 이기종 프로토콜 유연성과 분산 제어 특장점을 표 형태로 가시성 높게 교체했습니다.
+* **SQM 주요 기능 명세 개선**: 하단 주요 기능들을 미니멀 카드 그리드 형태로 현대화하여 통일감을 부여했습니다.
+* **스마트 공정 데이터 연동 아키텍처 색상 리브랜딩**: 파란색 계열의 동그라미와 텍스트를 이즈소프트 시그니처 그라디언트 주황색 및 웜 톤 계열(`var(--brand-gradient)`, `var(--color-brand-orange-light)`)로 전면 교체하여 전체 사이트 톤앤매너와 조화롭게 블렌딩시켰습니다.
+
+### 4) 구축사례(Portfolio) 및 문의하기(Contact)
+* **'CASE P16' 텍스트 완전 제거**: 구축사례 카드 우측 상단의 불필요한 일련번호 텍스트를 전면 걷어내어 심플하게 구성했습니다.
+* **카카오맵 검색 쿼리 연동**: 하단 '카카오맵에서 크게보기' 클릭 시 단순 지도만 열리거나 엉뚱한 위치가 나오는 현상을 수정하여, **'대구 동구 공항로56길 5 (주)이즈소프트'** 네임핀이 핀포인트로 정확히 꽂혀 열리도록 카카오맵 공식 검색 주소 체계로 연동했습니다.
+
+---
+
+## 4. 검색 노출 최적화 (SEO & Indexing)
+
+* **Canonical & Alternate 다국어 링크 매핑**:
+  - 각 페이지 헤더에 반대 국문/영문 페이지를 가리키는 `<link rel="alternate" hreflang="...">` 메타태그와 대표 주소 `<link rel="canonical" href="...">`를 심어 다국어 구조의 검색 노출 정확도를 확립했습니다.
+* **JSON-LD 구조화 데이터 스키마 (Schema.org)**:
+  - `BaseLayout.astro`에 `Organization` 스키마 마크업을 구조화 삽입하여 구글 및 네이버 검색 리치 결과에 회사 정보가 격식 있게 바인딩되도록 했습니다.
+* **Sitemap 자동 생성**:
+  - `@astrojs/sitemap` 공식 플러그인을 활용하여 빌드 시마다 모든 도메인 경로 정보가 담긴 `sitemap-index.xml`이 `dist/` 폴더에 자동으로 재생성됩니다.
+* **robots.txt 수집 규칙**:
+  - 모든 로봇의 검색 수집 허용 규칙(`User-agent: *`, `Allow: /`)과 함께 사이트맵 파일의 절대 경로를 지정해 둠으로써 웹마스터 도구에 등록 즉시 정밀한 수집이 시작됩니다.
+
+---
+
+## 5. 배포 가이드 (Deployment Guide)
+
+이 사이트는 **GitHub Actions** 워크플로우를 이용해 푸시 시 자동으로 **GitHub Pages**에 빌드 및 배포되도록 구성되어 있습니다.
+
+### 1) 사전 준비 사항
+1. **GitHub Repository**의 **Settings > Actions > General** 메뉴에서 **Workflow permissions**를 `Read and write permissions`로 설정해야 합니다. (Astro 배포 액션이 `gh-pages` 브랜치를 생성하고 파일을 쓸 수 있는 권한 제공)
+2. 도메인 `issoft.kr`을 정상 매핑하기 위해 `issoft-renewal/public/CNAME` 파일에 도메인명이 적혀 있는지 확인합니다 (이미 설정 완료).
+
+### 2) 배포 프로세스
+GitHub Actions 워크플로우(`.github/workflows/deploy.yml`)가 아래 과정을 자동으로 수행합니다.
+1. `main` 브랜치에 코드가 push되거나, Actions 탭에서 수동 실행(workflow_dispatch)될 때 파이프라인 작동.
+2. Node.js 22 LTS 환경을 세팅하고 `npm ci`를 수행해 종속성 설치.
+3. `npm run build`를 구동하여 `issoft-renewal/dist/` 디렉토리에 정적 빌드 아웃풋 컴파일.
+4. `peaceiris/actions-gh-pages`를 사용해 `dist` 내부 콘텐츠를 `gh-pages` 브랜치에 자동으로 덮어쓰기 배포.
+
+---
+
+## 6. 로컬 개발 명령어
+
+로컬 환경에서 코드 수정 및 테스트 서버를 구동하는 방법입니다.
+
+* **프로젝트 경로 이동**:
+  ```bash
+  cd issoft-renewal
+  ```
+* **종속성 패키지 최초 설치**:
+  ```bash
+  npm install
+  ```
+* **로컬 개발 서버 구동 (실시간 핫리로드)**:
+  ```bash
+  npm run dev
+  ```
+* **로컬 테스트 빌드**:
+  ```bash
+  npm run build
+  ```

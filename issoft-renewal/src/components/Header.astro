@@ -1,0 +1,381 @@
+---
+// Header.astro — Sticky header with logo, navigation, language switcher
+export interface Props {
+  lang?: 'ko' | 'en';
+  currentPath?: string;
+}
+
+const { lang = 'ko', currentPath = '/' } = Astro.props;
+
+interface NavItem {
+  label: string;
+  href: string;
+  children?: NavItem[];
+}
+
+const navItemsKo: NavItem[] = [
+  { label: '홈', href: '/' },
+  { label: '회사소개', href: '/about/' },
+  { label: '사업안내', href: '/services/' },
+  { label: '구축사례', href: '/portfolio/' },
+  { label: '연혁', href: '/history/' },
+  { label: '문의하기', href: '/contact/' },
+];
+
+const navItemsEn: NavItem[] = [
+  { label: 'Home', href: '/en/' },
+  { label: 'About', href: '/en/about/' },
+  { label: 'Services', href: '/en/services/' },
+  { label: 'Portfolio', href: '/en/portfolio/' },
+  { label: 'History', href: '/en/history/' },
+  { label: 'Contact', href: '/en/contact/' },
+];
+
+const navItems = lang === 'ko' ? navItemsKo : navItemsEn;
+
+// Language switcher URLs
+const switchLangUrl = lang === 'ko'
+  ? `/en${currentPath}`
+  : currentPath.replace(/^\/en/, '') || '/';
+---
+
+<header class="header" id="site-header">
+  <div class="header__inner container">
+    <!-- Logo (Using high-res clean ISSOFT_CI.png and layout wrapping to prevent squishing) -->
+    <a href={lang === 'ko' ? '/' : '/en/'} class="header__logo" aria-label="ISSOFT Home">
+      <img
+        src="/images/ISSOFT_CI.png"
+        alt="ISSOFT Logo"
+        width="44"
+        height="36"
+        class="header__logo-icon"
+      />
+      <span class="header__logo-text">ISSOFT</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav" aria-label={lang === 'ko' ? '주 메뉴' : 'Main navigation'}>
+      <ul class="header__menu">
+        {navItems.map((item) => (
+          <li class="header__menu-item">
+            <a
+              href={item.href}
+              class:list={[
+                'header__menu-link',
+                { 'is-active': currentPath === item.href || currentPath.startsWith(item.href) && item.href !== '/' && item.href !== '/en/' },
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Language Switcher + Mobile Menu Toggle -->
+    <div class="header__actions">
+      <a href={switchLangUrl} class="header__lang-switch" aria-label={lang === 'ko' ? 'Switch to English' : '한국어로 전환'}>
+        <span class:list={['header__lang-option', { 'is-active': lang === 'ko' }]}>KO</span>
+        <span class="header__lang-divider">|</span>
+        <span class:list={['header__lang-option', { 'is-active': lang === 'en' }]}>EN</span>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="header__mobile-toggle"
+        aria-label={lang === 'ko' ? '메뉴 열기' : 'Open menu'}
+        aria-expanded="false"
+        id="mobile-menu-toggle"
+      >
+        <span class="header__hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="header__mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav aria-label={lang === 'ko' ? '모바일 메뉴' : 'Mobile navigation'}>
+      <ul class="header__mobile-menu">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'header__mobile-link',
+                { 'is-active': currentPath === item.href },
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="header__mobile-lang">
+        <a href={switchLangUrl} class="btn btn--outline btn--sm">
+          {lang === 'ko' ? 'English' : '한국어'}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: box-shadow var(--transition-base);
+  }
+
+  .header.is-scrolled {
+    box-shadow: var(--shadow-md);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px; /* 조금 더 쾌적하게 헤더 높이 조정 */
+    gap: var(--space-xl);
+  }
+
+  /* Logo styling with aspect ratio fix */
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .header__logo-icon {
+    width: auto;
+    height: 38px; /* Fixed height for clean layout */
+    object-fit: contain; /* Prevent vertical/horizontal squeezing */
+    aspect-ratio: auto;
+    display: block;
+  }
+
+  .header__logo-text {
+    font-family: var(--font-english);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  /* Desktop Nav */
+  .header__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+  }
+
+  /* Increased menu font size (Feedback #5) */
+  .header__menu-link {
+    display: block;
+    padding: 10px 18px;
+    font-size: 1.05rem; /* Increased size for readability */
+    font-weight: 600; /* Bold for corporate presence */
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .header__menu-link:hover {
+    color: var(--color-brand-orange);
+    background: var(--color-brand-orange-light);
+  }
+
+  .header__menu-link.is-active {
+    color: var(--color-brand-orange);
+    font-weight: 700;
+    background: var(--color-brand-orange-light);
+  }
+
+  /* Actions */
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-shrink: 0;
+  }
+
+  .header__lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-english);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-light);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-fast);
+  }
+
+  .header__lang-switch:hover {
+    border-color: var(--color-brand-orange);
+    color: var(--color-text-secondary);
+  }
+
+  .header__lang-option.is-active {
+    color: var(--color-brand-orange);
+    font-weight: 700;
+  }
+
+  .header__lang-divider {
+    color: var(--color-border);
+  }
+
+  /* Mobile Toggle */
+  .header__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 22px;
+  }
+
+  .header__hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Nav */
+  .header__mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-white);
+    padding: var(--space-xl) var(--container-padding);
+    z-index: var(--z-overlay);
+    overflow-y: auto;
+  }
+
+  .header__mobile-nav.is-open {
+    display: block;
+  }
+
+  .header__mobile-menu {
+    list-style: none;
+  }
+
+  .header__mobile-link {
+    display: block;
+    padding: var(--space-md) 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .header__mobile-link.is-active {
+    color: var(--color-brand-orange);
+  }
+
+  .header__mobile-link:hover {
+    color: var(--color-brand-orange);
+  }
+
+  .header__mobile-lang {
+    padding-top: var(--space-xl);
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .header__nav {
+      display: none;
+    }
+
+    .header__mobile-toggle {
+      display: block;
+    }
+
+    .header__lang-switch {
+      display: none;
+    }
+
+    .header__inner {
+      height: 64px;
+    }
+
+    .header__mobile-nav {
+      top: 64px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .header__menu-link {
+      padding: 8px 12px;
+      font-size: var(--font-size-sm);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileNav.classList.toggle('is-open');
+      mobileNav.setAttribute('aria-hidden', String(isOpen));
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+  }
+
+  // Header scroll shadow
+  const header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+</script>

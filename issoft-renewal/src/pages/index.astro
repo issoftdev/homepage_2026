@@ -1,0 +1,597 @@
+---
+// 홈 페이지 — (주)이즈소프트 (피드백 반영 리뉴얼)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lang = 'ko';
+const currentPath = '/';
+
+// 6 Core Solutions with modern custom SVG icons (Added Web Custom Solution)
+const solutions = [
+  {
+    title: 'POP / MES',
+    desc: '제조 실행 통합 관리 시스템으로 생산 실적, 공정 진척도, 설비 가동 현황 등 원천 데이터를 실시간 수집·분석하여 현장 효율을 극대화합니다.',
+    link: '/services/#tab-pop',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/></svg>`,
+  },
+  {
+    title: 'MICS',
+    subtitle: '설비제어 모니터링',
+    desc: '이기종 설비 프로토콜 연동을 통한 분산 제어를 지원하며, 실시간 예후 진단을 통해 장비 오작동과 불필요한 가동 중단을 사전에 예방합니다.',
+    link: '/services/#tab-mics',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/></svg>`,
+  },
+  {
+    title: 'L-CRIS',
+    subtitle: '제조관리개발솔루션',
+    desc: 'C/S(Client/Server) 기반 고성능 윈도우 어플리케이션 전용으로, 대용량 생산 데이터 연산 및 화면 렌더링을 Zero-Lag 속도로 처리하는 프레임워크입니다.',
+    link: '/services/#tab-lcris',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    title: '현장 품질관리 시스템',
+    subtitle: 'SQM',
+    desc: '품목별 초·중·종물 검사, 자주 검사, 계측기 Bluetooth 연동 및 실시간 불량 판정 Fool-Proof 차단막을 공정 내에 완벽 구현합니다.',
+    link: '/services/#tab-sqm',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg>`,
+  },
+  {
+    title: '웹기반 맞춤 솔루션',
+    subtitle: 'Web Solution',
+    desc: '시대 흐름에 맞추어 언제 어디서든 접속이 가능한 고가용성 Web 기반 맞춤형 기업 솔루션(Web ERP, 웹 모니터링 시스템 등)을 전문 설계·제작합니다.',
+    link: '/services/#tab-web',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+  },
+];
+
+const stats = [
+  { number: '2013', label: '설립 연도' },
+  { number: '2016~', label: '스마트공장 보급사업 개시' },
+  { number: 'ISO 9001', label: '품질 경영 인증' },
+  { number: '100%', label: '자체 원천 솔루션' },
+];
+
+const news = [
+  { title: '중기부 스마트공장 공식 공급기업 Pool 등록', desc: '중소벤처기업부 스마트공장 보급·확산 사업 공급기업 자격을 유지하며 다수의 스마트 공장 인프라를 성공적으로 전산 구축하고 있습니다.' },
+  { title: '기술보증기금 벤처기업 지정', desc: '설립 1년 만에 기술 혁신성과 사업성 평가를 통과하여 고부가 기술 벤처로 도약하였습니다.' },
+  { title: '제조관리 플랫폼 L-CRIS 저작권 획득', desc: '독자적인 초고속 데이터 바인딩 연산 아키텍처의 독점 지적재산권을 공식 등록 완료하였습니다.' },
+];
+
+const clients = [
+  { name: '더미소', logo: '/images/port/themiso_thum.png' },
+  { name: 'E.O.S', logo: '/images/port/EOS_thum.png' },
+  { name: '진경포장', logo: '/images/port/jk_thum.png' },
+  { name: '제이브이엠', logo: '/images/port/jvm_thum.png' },
+  { name: '아세아텍', logo: '/images/port/asia_thum.png' },
+  { name: '유림공업', logo: '/images/port/yurim_thum.png' },
+  { name: '덴티스', logo: '/images/port/dentis_thum.png' },
+  { name: '상신브레이크', logo: '/images/port/SB_thum.png' },
+  { name: 'DASAN DMC', logo: '/images/port/DMC_thum.png' },
+  { name: '아진산업', logo: '/images/port/ajin_thum.png' },
+  { name: '덕산하이메탈', logo: '/images/port/duksan_thum.png' },
+  { name: '우신산업', logo: '/images/port/wooshin_thum.png' },
+];
+---
+
+<BaseLayout
+  title="ISSOFT | 스마트팩토리·제조 IT 통합 솔루션 전문기업"
+  description="공장자동화, 스마트 매뉴팩처링(POP/MES), 이기종 설비 제어(MICS), 초고속 프레임워크(L-CRIS) 분야의 원천 기술력을 확보한 전문 IT 파트너 이즈소프트입니다."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- 1. Hero Section -->
+  <section class="new-hero" aria-label="메인 비주얼 배너">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    
+    <div class="container new-hero__inner">
+      <div class="new-hero__content fade-in">
+        <span class="new-hero__badge">Smart Factory Specialist</span>
+        <h1 class="new-hero__title">
+          제조 현장의 미래를 여는<br />
+          <span class="new-hero__accent">지능형 IT 솔루션</span>
+        </h1>
+        <p class="new-hero__desc">
+          이즈소프트는 자체 원천 기술 기반의 윈도우 C/S 솔루션부터 최신 웹 기반 솔루션까지 풍부한 기계 제어 레퍼런스를 바탕으로 이기종 설비 연동, 실시간 생산 모니터링, 철강 절단 수율화에 이르는 제조업의 디지털 전환(DX)을 선도합니다.
+        </p>
+        <div class="new-hero__actions">
+          <a href="/services/" class="btn btn--primary btn--lg">솔루션 전체보기</a>
+          <a href="/contact/" class="btn btn--outline btn--lg" style="border-color: rgba(255,255,255,0.4); color: var(--color-white);">오시는 길</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Brand Pitch Section -->
+  <section class="section section--alt" aria-labelledby="pitch-title">
+    <div class="container">
+      <div class="brand-pitch fade-in">
+        <div class="brand-pitch__lead">
+          <span class="brand-pitch__accent">VALUE PROPOSITION</span>
+          <h2 id="pitch-title" class="brand-pitch__title">정부 지원 사업 공식 매칭 및 비용 경쟁력 확보</h2>
+        </div>
+        <div class="brand-pitch__body">
+          <p>
+            (주)이즈소프트는 <strong>2016년부터 중소벤처기업부 스마트공장 지원사업의 신뢰받는 공급기업</strong>으로 활동하고 있습니다. 중기부 스마트공장사업관리시스템 풀(Pool)에 정식 등록되어 안정적인 국비 지원 매칭을 통해 안전하고 실효성 높은 인프라 도입을 지원합니다.
+          </p>
+          <p>
+            자체 프레임워크 기반의 유연한 Windows 어플리케이션 및 최신 트렌드를 반영한 Web 기업 솔루션을 전문 제작함으로써, 개발 단가를 축소하고 현장 요구사항에 100% 매핑되는 스마트 공장을 구현해 드립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Showcase Section (Now 3-Column Grid for balance with 6 solutions) -->
+  <section class="section" aria-labelledby="showcase-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="showcase-title">Core Solutions</h2>
+        <p class="section__subtitle">고성능 윈도우 어플리케이션부터 맞춤형 웹 솔루션까지 완벽한 라인업을 제공합니다.</p>
+      </div>
+
+      <div class="showcase-grid">
+        {solutions.map((sol, i) => (
+          <a href={sol.link} class="showcase-card fade-in" style={`animation-delay: ${i * 0.08}s`}>
+            <div class="showcase-card__icon" set:html={sol.svg} />
+            <div class="showcase-card__body">
+              <h3 class="showcase-card__title">
+                {sol.title}
+                {sol.subtitle && <span class="showcase-card__sub">{sol.subtitle}</span>}
+              </h3>
+              <p class="showcase-card__desc">{sol.desc}</p>
+              <span class="showcase-card__link">자세히 보기 &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. L-CRIS Focus Wide Section -->
+  <section class="section section--dark focus-section" aria-labelledby="focus-title">
+    <div class="focus-glow"></div>
+    <div class="container focus-container">
+      <div class="focus-content fade-in">
+        <span class="badge">C/S WINDOWS APPLICATION</span>
+        <h2 id="focus-title" class="focus-title">고성능 윈도우 제조 개발 플랫폼 L-CRIS</h2>
+        <p class="focus-desc">
+          L-CRIS(Lean-based Creative Industry Solution)는 이즈소프트가 저작권을 소유한 고성능 Windows 어플리케이션 전용 데이터 제어 프레임워크입니다. 웹 브라우저의 제한을 극복하고, 클라이언트-서버(C/S) 기반의 초고속 데이터 바인딩 연산 아키텍처를 구현하여 현장의 수백만 건의 복잡한 생산 지표와 다차원 차트를 끊김 없이 다룰 수 있습니다.
+        </p>
+        <div class="focus-actions">
+          <a href="/services/#tab-lcris" class="btn btn--primary">L-CRIS 아키텍처 및 화면 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Value Stats Section -->
+  <section class="section" aria-labelledby="stats-title">
+    <div class="container">
+      <h2 class="sr-only" id="stats-title">수치로 입증하는 가치</h2>
+      <div class="stats fade-in">
+        {stats.map((stat) => (
+          <div class="stats__item">
+            <div class="stats__number">{stat.number}</div>
+            <div class="stats__label" style="color: var(--color-text-secondary);">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Refined Client Logo Board -->
+  <section class="section section--alt" aria-labelledby="client-board-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="client-board-title">Customers</h2>
+        <p class="section__subtitle">자동차부품, 임플란트, 식품 등 국내외 우수 제조 기업들이 이즈소프트와 함께합니다.</p>
+      </div>
+
+      <div class="logo-board fade-in">
+        {clients.map((cli) => (
+          <div class="logo-board__item" title={cli.name}>
+            <img
+              src={cli.logo}
+              alt={`${cli.name} 로고`}
+              class="logo-board__img"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. News Section -->
+  <section class="section" aria-labelledby="news-main-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="news-main-title">Business Insight</h2>
+        <p class="section__subtitle">이즈소프트의 공인 인증 및 혁신 기술 등록 소식입니다.</p>
+      </div>
+      <div class="grid grid--3 fade-in">
+        {news.map((item) => (
+          <div class="card">
+            <div class="card__body">
+              <span class="badge" style="margin-bottom: var(--space-md);">공식인증</span>
+              <h3 class="card__title" style="font-size: var(--font-size-md); font-weight: 700; line-height:1.4; margin-bottom: var(--space-sm);">{item.title}</h3>
+              <p class="card__text" style="font-size: var(--font-size-sm);">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Deep-navy CTA Section -->
+  <section class="brand-cta" aria-label="프로젝트 상담 제안">
+    <div class="container brand-cta__inner fade-in">
+      <h2 class="brand-cta__title">귀사의 제조 지능화 프로세스를 함께 설계합니다</h2>
+      <p class="brand-cta__desc">성공적인 스마트팩토리 기획, 이제 이즈소프트 전문 인프라 컨설턴트와 상의하세요.</p>
+      <div style="margin-top: var(--space-xl);">
+        <a href="/contact/" class="btn btn--primary btn--lg">컨설팅 및 구축 문의</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* 1. Hero Section */
+  .new-hero {
+    position: relative;
+    background-color: var(--color-bg-dark);
+    color: var(--color-white);
+    padding: 110px 0;
+    overflow: hidden;
+  }
+
+  .hero-glow-1 {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(242, 101, 34, 0.12) 0%, rgba(251, 176, 64, 0.05) 50%, rgba(0,0,0,0) 100%);
+    border-radius: var(--radius-full);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(251, 176, 64, 0.08) 0%, rgba(242, 101, 34, 0.02) 50%, rgba(0,0,0,0) 100%);
+    border-radius: var(--radius-full);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .new-hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .new-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .new-hero__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(242, 101, 34, 0.15);
+    border: 1px solid rgba(242, 101, 34, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--color-brand-yellow);
+    margin-bottom: var(--space-xl);
+    letter-spacing: 0.05em;
+  }
+
+  .new-hero__title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+  }
+
+  .new-hero__accent {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .new-hero__desc {
+    font-size: var(--font-size-md);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .new-hero__actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* 2. Brand Pitch */
+  .brand-pitch {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .brand-pitch__accent {
+    font-family: var(--font-english);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-brand-orange);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .brand-pitch__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+  }
+
+  .brand-pitch__body p {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .brand-pitch__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 3. Showcase Grid (3 Columns for 6 Solutions) */
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  .showcase-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    height: 100%;
+  }
+
+  .showcase-card:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .showcase-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-brand-orange-light);
+    color: var(--color-brand-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .showcase-card:hover .showcase-card__icon {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  .showcase-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase-card__sub {
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-orange);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .showcase-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .showcase-card__link {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-brand-orange);
+  }
+
+  /* 4. Wide Feature Spotlight */
+  .focus-section {
+    position: relative;
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .focus-glow {
+    position: absolute;
+    bottom: -10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, rgba(0,0,0,0) 80%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .focus-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .focus-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .focus-desc {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* 6. Refined Logo Board - Containment */
+  .logo-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-md);
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .logo-board__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    height: 90px;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border-light);
+    transition: all var(--transition-fast);
+  }
+
+  .logo-board__item:hover {
+    background: var(--color-white);
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+
+  .logo-board__img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 8. Deep-navy Brand CTA */
+  .brand-cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1A1D23 0%, #2D3436 100%);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .brand-cta__inner {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .brand-cta__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+    word-break: keep-all;
+  }
+
+  .brand-cta__desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--font-size-md);
+    word-break: keep-all;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1023px) {
+    .brand-pitch {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .brand-pitch {
+      text-align: center;
+    }
+
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-board {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .new-hero {
+      padding: 80px 0;
+    }
+
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .focus-section {
+      padding: 100px 0;
+    }
+
+    .logo-board {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-cta {
+      padding: 60px 0;
+    }
+  }
+</style>

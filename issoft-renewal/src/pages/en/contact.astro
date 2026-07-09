@@ -1,0 +1,211 @@
+---
+// Contact Us Page (English) — ISSOFT Software Co.,Ltd
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/contact/';
+---
+
+<BaseLayout
+  title="Contact Us | ISSOFT Software Co.,Ltd"
+  description="Get in touch with ISSOFT Software. Find office address in Daegu, telephone contacts, and email options for corporate business inquiries."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page Header">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/en/">Home</a>
+        <span>&gt;</span>
+        <span>Contact Us</span>
+      </div>
+      <h1 class="page-hero__title">Contact Us</h1>
+      <p class="page-hero__desc">Feel free to contact us. ISSOFT is always ready to assist your business.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" aria-labelledby="contact-main-title">
+    <div class="container">
+      <h2 class="sr-only" id="contact-main-title">Office Location and Contact Details</h2>
+
+      <div class="contact-layout fade-in">
+        <!-- Contact Cards -->
+        <div class="contact-info">
+          <h3 class="contact-info__heading">Location & Contacts</h3>
+          
+          <div class="contact-card">
+            <div class="contact-card__icon">📍</div>
+            <div class="contact-card__body">
+              <h4>Office Address</h4>
+              <p>5, Gonghang-ro 56-gil, Dong-gu, Daegu, Republic of Korea (Zip 41051), IS Building 5F</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon">📞</div>
+            <div class="contact-card__body">
+              <h4>Representative Tel</h4>
+              <p><a href="tel:053-743-8235" class="contact-link">+82-53-743-8235</a></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon">✉️</div>
+            <div class="contact-card__body">
+              <h4>Email Inquiries</h4>
+              <p><a href="mailto:ckkang@issoftware.co.kr" class="contact-link">ckkang@issoftware.co.kr</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="contact-map">
+          <h3 class="sr-only">Kakao Map Widget</h3>
+          <!-- Kakao Map Node -->
+          <div id="daumRoughmapContainer1587969578649" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+          
+          <!-- Kakao Map Link -->
+          <div class="map-actions">
+            <a
+              href="https://map.kakao.com/?q=%EB%8C%80%EA%B5%AC%20%EB%8F%99%EA%B5%AC%20%EA%B3%B5%ED%95%AD%EB%A1%9C56%EA%B8%B8%205"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline btn--sm"
+            >
+              View on Kakao Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+
+  <!-- Kakao Map Loader scripts -->
+  <script is:inline charset="UTF-8" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+  <script is:inline>
+    // Initialize Kakao roughmap
+    new daum.roughmap.Lander({
+      "timestamp" : "1587969578649",
+      "key" : "y5mk",
+      "mapWidth" : "100%",
+      "mapHeight" : "400"
+    }).render();
+  </script>
+</BaseLayout>
+
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .contact-info__heading {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    padding-left: var(--space-sm);
+  }
+
+  .contact-info__heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: var(--brand-gradient);
+    border-radius: var(--radius-full);
+  }
+
+  .contact-card {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-card__icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+  }
+
+  .contact-card__body h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact-card__body p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .contact-link {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .contact-link:hover {
+    color: var(--color-brand-orange);
+  }
+
+  /* Map Container */
+  .contact-map {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border-light);
+    overflow: hidden;
+  }
+
+  /* Custom override for kakao container border */
+  :global(.root_daum_roughmap) {
+    border: none !important;
+    font-family: var(--font-primary) !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  :global(.root_daum_roughmap .wrap_map) {
+    width: 100% !important;
+    height: 400px !important;
+  }
+
+  :global(.root_daum_roughmap .map) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .map-actions {
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 1023px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+</style>

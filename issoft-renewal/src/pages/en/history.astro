@@ -1,0 +1,103 @@
+---
+// History Page (English) — ISSOFT Software Co.,Ltd
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/history/';
+
+const events = [
+  {
+    date: '2020. 04',
+    title: 'Relocation & Expansion to IS Building',
+    desc: 'Relocated and expanded corporate headquarters to the 5th floor of IS Building, Dong-gu, Daegu.',
+  },
+  {
+    date: '2017. 07',
+    title: 'ISO 9001:2015 Certification',
+    desc: 'Acquired ISO 9001:2015 Quality Management System Certification to standardize operations.',
+  },
+  {
+    date: '2016. 06',
+    title: 'Smart Factory Verified Supplier Pool Registered',
+    desc: 'Officially registered as a verified smart factory deployment supplier under the Ministry of SMEs and Startups (MSS).',
+  },
+  {
+    date: '2015. 03',
+    title: 'Relocation to Daegu Knowledge Service Center',
+    desc: 'Relocated office to Daegu Techno Park Knowledge Service Center to enhance technical infrastructure.',
+  },
+  {
+    date: '2014. 11',
+    title: 'R&D Department Certification',
+    desc: 'Officially certified as a Corporate Research & Development department by the Korea Industrial Technology Association (KOITA).',
+  },
+  {
+    date: '2014. 10',
+    title: 'Venture Business Certification',
+    desc: 'Acquired Venture Business Certification from Korea Technology Finance Corporation (KIBO) within 1 year of startup.',
+  },
+  {
+    date: '2014. 07',
+    title: 'L-CRIS Copyright Registration',
+    desc: 'Officially registered proprietary manufacturing system L-CRIS with the Korea Copyright Commission.',
+  },
+  {
+    date: '2014. 05',
+    title: 'Date of Incorporation',
+    desc: 'Converted business structure to a joint-stock corporation, ISSOFT Software Co., Ltd.',
+  },
+  {
+    date: '2013. 12',
+    title: 'Software Business Registration',
+    desc: 'Registered as an official Software Enterprise with the Korea Software Industry Association (KOSA).',
+  },
+  {
+    date: '2013. 11',
+    title: 'ISSOFT Established',
+    desc: 'Founded ISSOFT, specialized in custom corporate informatization software systems.',
+  },
+];
+---
+
+<BaseLayout
+  title="History | ISSOFT Software Co.,Ltd"
+  description="Explore ISSOFT's timeline, achievements, certifications, and growth milestones from its establishment to the present."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page Header">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/en/">Home</a>
+        <span>&gt;</span>
+        <span>History</span>
+      </div>
+      <h1 class="page-hero__title">Our History</h1>
+      <p class="page-hero__desc">The history of ISSOFT’s growth, innovation, and partnership with clients.</p>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" aria-labelledby="history-title">
+    <div class="container">
+      <h2 class="sr-only" id="history-title">History Timeline</h2>
+      <div class="timeline">
+        {events.map((event) => (
+          <div class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__date">{event.date}</div>
+            <h3 class="timeline__title">{event.title}</h3>
+            <p class="timeline__desc">{event.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>

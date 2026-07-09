@@ -1,0 +1,263 @@
+---
+// Footer.astro — Corporate footer with company info, navigation, and logo
+export interface Props {
+  lang?: 'ko' | 'en';
+}
+
+const { lang = 'ko' } = Astro.props;
+
+const footerNavKo = [
+  { label: '홈', href: '/' },
+  { label: '회사소개', href: '/about/' },
+  { label: '사업안내', href: '/services/' },
+  { label: '구축사례', href: '/portfolio/' },
+  { label: '연혁', href: '/history/' },
+  { label: '문의하기', href: '/contact/' },
+];
+
+const footerNavEn = [
+  { label: 'Home', href: '/en/' },
+  { label: 'About', href: '/en/about/' },
+  { label: 'Services', href: '/en/services/' },
+  { label: 'Portfolio', href: '/en/portfolio/' },
+  { label: 'History', href: '/en/history/' },
+  { label: 'Contact', href: '/en/contact/' },
+];
+
+const footerNav = lang === 'ko' ? footerNavKo : footerNavEn;
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__main">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Company Info -->
+        <div class="footer__info">
+          <a href={lang === 'ko' ? '/' : '/en/'} class="footer__logo" aria-label="ISSOFT Home">
+            <img src="/images/ISSOFT_CI.png" alt="ISSOFT Logo" width="38" height="32" />
+            <span class="footer__logo-text">ISSOFT</span>
+          </a>
+          <p class="footer__tagline">
+            {lang === 'ko'
+              ? '미래를 함께하는 IT 성공 파트너'
+              : 'Your IT Success Partner for the Future'}
+          </p>
+          <p class="footer__desc">
+            {lang === 'ko'
+              ? '기업정보화 솔루션 전문기업'
+              : 'The Expert in Business Informatization'}
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer__nav-section">
+          <h3 class="footer__heading">
+            {lang === 'ko' ? '바로가기' : 'Quick Links'}
+          </h3>
+          <ul class="footer__nav">
+            {footerNav.map((item) => (
+              <li>
+                <a href={item.href} class="footer__nav-link">{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer__contact">
+          <h3 class="footer__heading">
+            {lang === 'ko' ? '연락처' : 'Contact'}
+          </h3>
+          <address class="footer__address">
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>
+                {lang === 'ko'
+                  ? '대구광역시 동구 공항로56길 5, 이즈빌딩 5층'
+                  : '5, Gonghang-ro 56-gil, Dong-gu, Daegu, IS Building 5F'}
+              </span>
+            </div>
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:053-743-8235">053-743-8235</a>
+            </div>
+            <div class="footer__contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:ckkang@issoftware.co.kr">ckkang@issoftware.co.kr</a>
+            </div>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__bottom-inner">
+        <p class="footer__copyright">
+          &copy; {currentYear} ISSOFT Software Co.,Ltd.
+          {lang === 'ko' ? '모든 권리 보유.' : 'All rights reserved.'}
+        </p>
+        <p class="footer__legal">
+          {lang === 'ko'
+            ? `대표이사 강창국 | 사업자등록번호 502-86-32604`
+            : `CEO Changkuk Kang | Registration No. 502-86-32604`}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-bg-dark);
+    color: #B8BCC0;
+  }
+
+  .footer__main {
+    padding: var(--space-3xl) 0;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: var(--space-3xl);
+  }
+
+  /* Logo & Info */
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__logo img {
+    width: auto;
+    height: 32px;
+    object-fit: contain;
+    aspect-ratio: auto;
+  }
+
+  .footer__logo-text {
+    font-family: var(--font-english);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .footer__tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-brand-orange);
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer__desc {
+    font-size: var(--font-size-sm);
+    color: #8B9199;
+  }
+
+  /* Nav */
+  .footer__heading {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer__nav {
+    list-style: none;
+  }
+
+  .footer__nav li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer__nav-link {
+    font-size: var(--font-size-sm);
+    color: #8B9199;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__nav-link:hover {
+    color: var(--color-brand-orange);
+  }
+
+  /* Contact */
+  .footer__address {
+    font-style: normal;
+  }
+
+  .footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-sm);
+    color: #8B9199;
+  }
+
+  .footer__contact-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-brand-orange);
+  }
+
+  .footer__contact-item a {
+    color: #8B9199;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__contact-item a:hover {
+    color: var(--color-brand-orange);
+  }
+
+  /* Bottom Bar */
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--space-lg) 0;
+  }
+
+  .footer__bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .footer__copyright,
+  .footer__legal {
+    font-size: var(--font-size-xs);
+    color: #5A6169;
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .footer__bottom-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

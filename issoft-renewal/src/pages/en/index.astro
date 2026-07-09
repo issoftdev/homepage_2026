@@ -1,0 +1,597 @@
+---
+// Home Page — ISSOFT Software Co.,Ltd (English) (Feedback Incorporated Redesign)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/';
+
+// 6 Core Solutions with custom tech SVGs (Added Web Solution)
+const solutions = [
+  {
+    title: 'POP / MES',
+    desc: 'Real-time production, equipment status, WIP, and yield data acquisition system to immediately eliminate shop-floor bottlenecks and maximize OEE.',
+    link: '/en/services/#tab-pop',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/></svg>`,
+  },
+  {
+    title: 'MICS',
+    subtitle: 'Equipment Interface & Control',
+    desc: 'Orchestrate heterogeneous machine protocols to enable distributed controls, and secure preventive diagnostics to avoid unplanned equipment downtimes.',
+    link: '/en/services/#tab-mics',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/></svg>`,
+  },
+  {
+    title: 'L-CRIS',
+    subtitle: 'Enterprise Dev Framework',
+    desc: 'Proprietary core data binding engine designed to execute ultra-fast data integration and automate high-performance Windows Client/Server (C/S) desktop applications.',
+    link: '/en/services/#tab-lcris',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    title: 'Shop-floor Quality Management',
+    subtitle: 'SQM',
+    desc: 'Smart gage integrations, stage check sheets (first/middle/final-piece), and automated Fool-Proof containment to block defect leaks.',
+    link: '/en/services/#tab-sqm',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg>`,
+  },
+  {
+    title: 'Custom Web Solutions',
+    subtitle: 'Web Solution',
+    desc: 'Professional engineering of robust, high-availability web-based business solutions (Web ERP, Web monitoring portals) tailored for remote data access.',
+    link: '/en/services/#tab-web',
+    svg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+  },
+];
+
+const stats = [
+  { number: '2013', label: 'Year Founded' },
+  { number: '2016~', label: 'Started Smart Factory Projects' },
+  { number: 'ISO 9001', label: 'Quality Standard Certified' },
+  { number: '100%', label: 'In-house Proprietary Solutions' },
+];
+
+const news = [
+  { title: 'Registered in MSS Smart Factory Supply Pool', desc: 'Actively participating in the Ministry of SMEs and Startups (MSS) Smart Factory program as a verified supplier since 2016.' },
+  { title: 'Venture Business Certification Acquired', desc: 'Officially certified by KIBO for outstanding technology innovation and commercial feasibility within 1 year of startup.' },
+  { title: 'L-CRIS Software Copyright Registered', desc: 'Acquired exclusive intellectual property rights for high-speed industrial data processing framework architecture.' },
+];
+
+const clients = [
+  { name: 'The Miso', logo: '/images/port/themiso_thum.png' },
+  { name: 'E.O.S', logo: '/images/port/EOS_thum.png' },
+  { name: 'Jinkyung', logo: '/images/port/jk_thum.png' },
+  { name: 'JVM', logo: '/images/port/jvm_thum.png' },
+  { name: 'Asia Tech', logo: '/images/port/asia_thum.png' },
+  { name: 'Yurim', logo: '/images/port/yurim_thum.png' },
+  { name: 'Dentis', logo: '/images/port/dentis_thum.png' },
+  { name: 'Sangshin', logo: '/images/port/SB_thum.png' },
+  { name: 'Dasan DMC', logo: '/images/port/DMC_thum.png' },
+  { name: 'Ajin', logo: '/images/port/ajin_thum.png' },
+  { name: 'Duksan High Metal', logo: '/images/port/duksan_thum.png' },
+  { name: 'Wooshin', logo: '/images/port/wooshin_thum.png' },
+];
+---
+
+<BaseLayout
+  title="ISSOFT | Smart Factory & Manufacturing IT Solutions"
+  description="ISSOFT provides optimal business solutions in factory automation, smart manufacturing (POP/MES), MICS equipment control, and L-CRIS framework."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- 1. Hero Section -->
+  <section class="new-hero" aria-label="Main Visual Banner">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container new-hero__inner">
+      <div class="new-hero__content fade-in">
+        <span class="new-hero__badge">Smart Factory Specialist</span>
+        <h1 class="new-hero__title">
+          Intelligent IT Solutions<br />
+          <span class="new-hero__accent">Driving Plant Futures</span>
+        </h1>
+        <p class="new-hero__desc">
+          ISSOFT leads manufacturing digital transformation (DX) backed by high-performance Windows C/S architectures and modern custom Web solutions. We deliver seamless machinery connections, real-time analytics, and steel plate nesting optimization.
+        </p>
+        <div class="new-hero__actions">
+          <a href="/en/services/" class="btn btn--primary btn--lg">Our Solutions</a>
+          <a href="/en/contact/" class="btn btn--outline btn--lg" style="border-color: rgba(255,255,255,0.4); color: var(--color-white);">Find Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Brand Pitch Section -->
+  <section class="section section--alt" aria-labelledby="pitch-title">
+    <div class="container">
+      <div class="brand-pitch fade-in">
+        <div class="brand-pitch__lead">
+          <span class="brand-pitch__accent">VALUE PROPOSITION</span>
+          <h2 id="pitch-title" class="brand-pitch__title">Official Government Smart Factory Supplier Since 2016</h2>
+        </div>
+        <div class="brand-pitch__body">
+          <p>
+            ISSOFT has served as a <strong>verified smart factory supplier under the Ministry of SMEs and Startups (MSS) since 2016</strong>. Registered officially in the MSS Smart Factory Management Pool, we guide clients through public funding setups to deploy reliable, high-yield plant control systems.
+          </p>
+          <p>
+            By designing customized Windows desktop solutions alongside modern high-availability Web architectures, we eliminate external license dependencies and minimize custom deployment overheads.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Showcase Section -->
+  <section class="section" aria-labelledby="showcase-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="showcase-title">Core Solutions</h2>
+        <p class="section__subtitle">From robust Windows C/S desktops to custom web integrations, we secure manufacturing floor operations.</p>
+      </div>
+
+      <div class="showcase-grid">
+        {solutions.map((sol, i) => (
+          <a href={sol.link} class="showcase-card fade-in" style={`animation-delay: ${i * 0.08}s`}>
+            <div class="showcase-card__icon" set:html={sol.svg} />
+            <div class="showcase-card__body">
+              <h3 class="showcase-card__title">
+                {sol.title}
+                {sol.subtitle && <span class="showcase-card__sub">{sol.subtitle}</span>}
+              </h3>
+              <p class="showcase-card__desc">{sol.desc}</p>
+              <span class="showcase-card__link">Read More &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. L-CRIS Focus Wide Section -->
+  <section class="section section--dark focus-section" aria-labelledby="focus-title">
+    <div class="focus-glow"></div>
+    <div class="container focus-container">
+      <div class="focus-content fade-in">
+        <span class="badge">C/S WINDOWS APPLICATION</span>
+        <h2 id="focus-title" class="focus-title">High-Performance Windows Desktop Framework L-CRIS</h2>
+        <p class="focus-desc">
+          L-CRIS (Lean-based Creative Industry Solution) is ISSOFT's patented desktop platform. It bypasses web browser compute constraints, implementing a Client/Server (C/S) architecture with advanced data binding engines to render millions of data metrics instantly with Zero-Lag.
+        </p>
+        <div class="focus-actions">
+          <a href="/en/services/#tab-lcris" class="btn btn--primary">View L-CRIS Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Value Stats Section -->
+  <section class="section" aria-labelledby="stats-title">
+    <div class="container">
+      <h2 class="sr-only" id="stats-title">Proven Value Numbers</h2>
+      <div class="stats fade-in">
+        {stats.map((stat) => (
+          <div class="stats__item">
+            <div class="stats__number">{stat.number}</div>
+            <div class="stats__label" style="color: var(--color-text-secondary);">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Refined Client Logo Board -->
+  <section class="section section--alt" aria-labelledby="client-board-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="client-board-title">Customers</h2>
+        <p class="section__subtitle">Leading manufacturing brands in medical device, automotive, and food industries trust ISSOFT.</p>
+      </div>
+
+      <div class="logo-board fade-in">
+        {clients.map((cli) => (
+          <div class="logo-board__item" title={cli.name}>
+            <img
+              src={cli.logo}
+              alt={`${cli.name} logo`}
+              class="logo-board__img"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. News Section -->
+  <section class="section" aria-labelledby="news-main-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="news-main-title">Business Insight</h2>
+        <p class="section__subtitle">Latest official certifications and R&D announcements from ISSOFT.</p>
+      </div>
+      <div class="grid grid--3 fade-in">
+        {news.map((item) => (
+          <div class="card">
+            <div class="card__body">
+              <span class="badge" style="margin-bottom: var(--space-md);">Official</span>
+              <h3 class="card__title" style="font-size: var(--font-size-md); font-weight: 700; line-height:1.4; margin-bottom: var(--space-sm);">{item.title}</h3>
+              <p class="card__text" style="font-size: var(--font-size-sm);">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Deep-navy Brand CTA -->
+  <section class="brand-cta" aria-label="Consultation Request">
+    <div class="container brand-cta__inner fade-in">
+      <h2 class="brand-cta__title">Let’s Orchestrate Your Plant Intelligences</h2>
+      <p class="brand-cta__desc">Consult with ISSOFT’s expert engineers to map out your smart factory DX roadmap.</p>
+      <div style="margin-top: var(--space-xl);">
+        <a href="/en/contact/" class="btn btn--primary btn--lg">Request Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* 1. Hero Section */
+  .new-hero {
+    position: relative;
+    background-color: var(--color-bg-dark);
+    color: var(--color-white);
+    padding: 110px 0;
+    overflow: hidden;
+  }
+
+  .hero-glow-1 {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(242, 101, 34, 0.12) 0%, rgba(251, 176, 64, 0.05) 50%, rgba(0,0,0,0) 100%);
+    border-radius: var(--radius-full);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(251, 176, 64, 0.08) 0%, rgba(242, 101, 34, 0.02) 50%, rgba(0,0,0,0) 100%);
+    border-radius: var(--radius-full);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .new-hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .new-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .new-hero__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(242, 101, 34, 0.15);
+    border: 1px solid rgba(242, 101, 34, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--color-brand-yellow);
+    margin-bottom: var(--space-xl);
+    letter-spacing: 0.05em;
+  }
+
+  .new-hero__title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+  }
+
+  .new-hero__accent {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .new-hero__desc {
+    font-size: var(--font-size-md);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .new-hero__actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* 2. Brand Pitch */
+  .brand-pitch {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .brand-pitch__accent {
+    font-family: var(--font-english);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-brand-orange);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .brand-pitch__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+  }
+
+  .brand-pitch__body p {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .brand-pitch__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 3. Showcase Grid */
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  .showcase-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    height: 100%;
+  }
+
+  .showcase-card:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .showcase-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-brand-orange-light);
+    color: var(--color-brand-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .showcase-card:hover .showcase-card__icon {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  .showcase-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase-card__sub {
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-orange);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .showcase-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .showcase-card__link {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-brand-orange);
+  }
+
+  /* 4. Wide Feature Spotlight */
+  .focus-section {
+    position: relative;
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .focus-glow {
+    position: absolute;
+    bottom: -10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(242, 101, 34, 0.1) 0%, rgba(0,0,0,0) 80%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .focus-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .focus-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .focus-desc {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* 6. Refined Logo Board - Containment */
+  .logo-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-md);
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .logo-board__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    height: 90px;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border-light);
+    transition: all var(--transition-fast);
+  }
+
+  .logo-board__item:hover {
+    background: var(--color-white);
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+
+  .logo-board__img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 8. Deep-navy Brand CTA */
+  .brand-cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1A1D23 0%, #2D3436 100%);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .brand-cta__inner {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .brand-cta__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+    word-break: keep-all;
+  }
+
+  .brand-cta__desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--font-size-md);
+    word-break: keep-all;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1023px) {
+    .brand-pitch {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .brand-pitch {
+      text-align: center;
+    }
+
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-board {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .new-hero {
+      padding: 80px 0;
+    }
+
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .focus-section {
+      padding: 100px 0;
+    }
+
+    .logo-board {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-cta {
+      padding: 60px 0;
+    }
+  }
+</style>

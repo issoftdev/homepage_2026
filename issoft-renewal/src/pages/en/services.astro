@@ -1,0 +1,955 @@
+---
+// Services Page (English) — ISSOFT Software Co.,Ltd (Feedback Incorporated Redesign)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/services/';
+---
+
+<BaseLayout
+  title="Services | ISSOFT Software Co.,Ltd"
+  description="Explore ISSOFT's smart factory portfolio: POP/MES solutions, MICS equipment interface controls, L-CRIS high-speed Windows desktop Client/Server framework, SQM shop-floor quality containment, and custom Web business applications."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page Header">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/en/">Home</a>
+        <span>&gt;</span>
+        <span>Services</span>
+      </div>
+      <h1 class="page-hero__title">Our Services</h1>
+      <p class="page-hero__desc">Discover ISSOFT's high-fidelity software suites driving smart plant digital transformation.</p>
+    </div>
+  </section>
+
+  <!-- Service Tabs Section -->
+  <section class="section" aria-labelledby="services-main-title">
+    <div class="container">
+      <h2 class="sr-only" id="services-main-title">Our Solutions</h2>
+
+      <div class="services-container">
+        <!-- Radio inputs for active tab -->
+        <input type="radio" name="service-tab" id="tab-pop" class="tab-input" checked />
+        <input type="radio" name="service-tab" id="tab-mics" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-lcris" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-sqm" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-web" class="tab-input" />
+
+        <!-- Tab Labels / Navigation -->
+        <div class="services-nav">
+          <label for="tab-pop" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">POP / MES</span>
+          </label>
+          <label for="tab-mics" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">MICS Control</span>
+          </label>
+          <label for="tab-lcris" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">L-CRIS Framework</span>
+          </label>
+          <label for="tab-sqm" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">Quality Control (SQM)</span>
+          </label>
+          <label for="tab-web" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">Web Custom Solutions</span>
+          </label>
+        </div>
+
+        <!-- Tab Content Areas -->
+        <div class="services-content">
+          <!-- 1. POP/MES Content -->
+          <div class="services-panel" id="panel-pop">
+            <h3 class="panel-title">POP / MES (Manufacturing Execution System)</h3>
+            <p class="panel-lead">Real-time data pipeline orchestration maximizing floor transparency and digital intelligence.</p>
+
+            <div class="panel-section">
+              <h4>POP & MES Solution Overview</h4>
+              <p>ISSOFT's POP/MES serves as the central nervous system of smart factories. Moving beyond simple retrospective record-keeping, it gathers vital raw metrics (schedule-vs-actual output, downtime analyses, material yields, and WIP buffers) via high-speed floor networks. This enables plant managers to visualize floor bottlenecks instantly and coordinate proactive routing controls.</p>
+            </div>
+
+            <div class="panel-section grid grid--2">
+              <div>
+                <h4>Business Focus</h4>
+                <p>Establishing data-driven decision setups to enhance plant routing flexibilities and prevent administrative overheads. We provide shop-floor managers with complete visibility to detect and contain exceptions early, preserving production margins.</p>
+                <ul class="panel-list">
+                  <li>Real-time WIP tracking ensuring highly precise shipping forecasts</li>
+                  <li>Early failure indicators to avoid unscheduled equipment shutdowns</li>
+                  <li>Comprehensive material-to-shipment Traceability logs</li>
+                  <li>Down-floor digital work instructions to eliminate human assembly errors</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Quantifiable Value Benefits</h4>
+                <div class="effect-cards">
+                  <div class="effect-card"><span class="effect-card__tag">Lead Time</span> 15%+ Reduction in Manufacturing Lead Time</div>
+                  <div class="effect-card"><span class="effect-card__tag">Inventory</span> Minimized Shop-Floor WIP Buffers</div>
+                  <div class="effect-card"><span class="effect-card__tag">Yield</span> Boosted Machine Utilization & Global Yields</div>
+                  <div class="effect-card"><span class="effect-card__tag">Cost</span> Significant Reduction in Tracking Overheads</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>Smart Factory Data Integration Architecture</h4>
+              
+              <!-- Redrawn HTML/CSS Diagram based strictly on /images/0201.jpg (English) -->
+              <!-- Redrawn HTML/CSS Classic Diagram based strictly on /images/0201.jpg (English) -->
+              <div class="mes-pop-classic-container">
+                <div class="mes-pop-classic">
+                  <!-- Left Text: MES -->
+                  <div class="classic-node classic-node--mes">MES</div>
+                  
+                  <!-- Left Connector (Dot is near MES) -->
+                  <div class="classic-line classic-line--left">
+                    <div class="classic-dot"></div>
+                    <div class="classic-connector"></div>
+                  </div>
+
+                  <!-- Center Circle (Double circular outline like original image) -->
+                  <div class="classic-circle-outer">
+                    <div class="classic-circle-inner">
+                      <span>Production<br/>Management</span>
+                    </div>
+                  </div>
+
+                  <!-- Right Connector (Dot is near POP) -->
+                  <div class="classic-line classic-line--right">
+                    <div class="classic-connector"></div>
+                    <div class="classic-dot"></div>
+                  </div>
+
+                  <!-- Right Text: POP -->
+                  <div class="classic-node classic-node--pop">POP</div>
+                </div>
+
+                <!-- Three Dots -->
+                <div class="classic-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <!-- Description Text -->
+                <p class="classic-desc">
+                  We promise to secure corporate competitiveness through systematic and rational production activities,<br/>
+                  supporting more intuitive and transparent management through MES and POP system implementation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. MICS Content -->
+          <div class="services-panel" id="panel-mics">
+            <h3 class="panel-title">MICS (Machine Interface & Control System)</h3>
+            <p class="panel-lead">Orchestrating heterogeneous equipment protocols to safeguard overall line utilization.</p>
+
+            <div class="panel-section">
+              <h4>MICS Overview</h4>
+              <p>MICS standardizes and syncs varying equipment configurations across older and newer machine types. It delivers unified web and mobile control dashboards, allowing engineering crews to perform predictive diagnoses on machinery anomalies and record continuous telemetry logs.</p>
+            </div>
+
+            <div class="panel-section">
+              <h4>Core Strengths</h4>
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width: 25%">Advantages</th>
+                      <th style="width: 75%">Technical Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>PC-Based High-Speed Controls</strong></td>
+                      <td>Utilizes multi-threaded parallel algorithms and isolated control modules to secure fast fail-overs. Delivers hardware-level control reliability and execution speed on standard PC hardware.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Protocol Flexibility</strong></td>
+                      <td>Equipped with mock simulation tools to test interface connections virtually before deployment. Fully supports OPC UA, Modbus, and various industry standard interfaces for seamless enterprise setups.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Rapid ROI</strong></td>
+                      <td>Features a built-in visual layout modeler, enabling crews to customize monitoring interfaces and control screens rapidly without coding from scratch.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. L-CRIS Content -->
+          <div class="services-panel" id="panel-lcris">
+            <h3 class="panel-title">L-CRIS (Windows C/S Desktop Dev Framework)</h3>
+            <p class="panel-lead">Ultra-fast database rendering and automated Client/Server (C/S) UI components.</p>
+
+            <div class="panel-section">
+              <h4>L-CRIS Overview</h4>
+              <p>L-CRIS (Lean-based Creative Industry Solution) is ISSOFT's patented **Client/Server (C/S) based high-performance Windows desktop application framework**. Bypassing standard browser runtime bottlenecks, it leverages a native Windows client-side data binding engine. This allows database operators to filter millions of production entries, pivot grids, and map analysis charts with Zero-Lag.</p>
+            </div>
+
+            <div class="panel-section">
+              <h4>Key Functionalities</h4>
+
+              <div class="lcris-features">
+                <div class="lcris-feature">
+                  <h5>01 Legacy System Optimization</h5>
+                  <p>Upgrades aging C/S database entry screens, improving query rendering speeds without requiring extensive database redesigns.</p>
+                  <img src="/images/l_cris/1.png" alt="L-CRIS Data Bridge Console" loading="lazy" />
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>02 Interactive Pivot and Chart Automations</h5>
+                  <p>Translates bulk log tables into drag-and-drop Pivot tables instantly on Windows clients, compiling clean graphics for corporate reporting.</p>
+                  <div class="grid grid--2">
+                    <img src="/images/l_cris/2.png" alt="Pivot grid layout 1" loading="lazy" />
+                    <img src="/images/l_cris/3.png" alt="Pivot grid layout 2" loading="lazy" />
+                    <img src="/images/l_cris/4.png" alt="Visual graph 1" loading="lazy" />
+                    <img src="/images/l_cris/5.png" alt="Visual graph 2" loading="lazy" />
+                  </div>
+                  <img src="/images/l_cris/6.png" alt="Massive table grid editor" style="margin-top: var(--space-md);" loading="lazy" />
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>03 Dynamic Query Mapping</h5>
+                  <p>Allows system admins to map dynamic columns and search parameters without writing custom code, saving configurations directly to local profiles.</p>
+                  <div class="grid grid--2">
+                    <img src="/images/l_cris/7.png" alt="Query filter mapping" loading="lazy" />
+                    <img src="/images/l_cris/8.png" alt="Grid column mapper" loading="lazy" />
+                  </div>
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>04 High-Concurrency Windows Optimization</h5>
+                  <p>Leverages native OS client resources to compile composite criteria across several linked tables, ensuring optimal desktop performance.</p>
+                  <img src="/images/l_cris/9.png" alt="Multi-dashboard structure" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- 5. SQM Content -->
+          <div class="services-panel" id="panel-sqm">
+            <h3 class="panel-title">Shop-floor Quality Management (SQM)</h3>
+            <p class="panel-lead">Real-time quality log digitization and automated defect containment.</p>
+
+            <div class="panel-section">
+              <h4>SQM Overview</h4>
+              <p>A digital QA system to ensure zero-defect quality standards. SQM replaces paper inspection log sheets with connected tablets and Bluetooth measurement gauges. It records initial, middle, and final inspection logs directly to QA databases to secure overall product traceability.</p>
+            </div>
+
+            <div class="panel-section grid grid--2">
+              <div class="card card--accent">
+                <div class="card__body">
+                  <h5 class="card__title">Connected Inspection Interfaces</h5>
+                  <p class="card__text">Connects digital micrometers via Bluetooth/Serial links to record dimensional measurements automatically, removing manual data entry errors.</p>
+                </div>
+              </div>
+              <div class="card card--accent">
+                <div class="card__body">
+                  <h5 class="card__title">Fool-Proof Containment Locks</h5>
+                  <p class="card__text">Sends immediate alerts to machine controllers if dimensions fall outside tolerance bounds, containing defect propagation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>Core Quality Modules</h4>
+              <div class="sqm-features-list">
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">QA Standard Settings</h5>
+                  <p class="sqm-item__desc">Mapped tolerance bounds (LSL, USL) corresponding to part numbers.</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">On-Floor Inspection</h5>
+                  <p class="sqm-item__desc">Optimized layouts for quick data input of batch logs.</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">Traceability Logs</h5>
+                  <p class="sqm-item__desc">Binds barcode scan values to historical measurement metrics.</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">Quality Analytics</h5>
+                  <p class="sqm-item__desc">Visualizes defect classifications and trend reports.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Web Custom Solution Content (Added Web Solution) -->
+          <div class="services-panel" id="panel-web">
+            <h3 class="panel-title">Custom Web Solutions (Web Custom Solution)</h3>
+            <p class="panel-lead">Cross-platform web standard architectures integrating enterprise databases.</p>
+
+            <div class="panel-section">
+              <h4>Web-Based Enterprise Solutions Overview</h4>
+              <p>We leverage modern web standards to engineer high-availability, responsive web business applications (Web ERP, Web monitoring consoles) that provide secure, cross-device access on mobile, tablet, and desktop viewports.</p>
+            </div>
+
+            <div class="panel-section grid grid--3">
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Web ERP & Portal</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">Integrated Portals</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">Integrates sales, inventory, and production logs into a single web portal, providing live business KPI reporting to stakeholders.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Responsive WebApp</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">On-Floor Web Apps</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">Equips storage yard and warehouse workers with responsive camera scanning web apps to record materials and shipments easily.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Live Monitoring</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">Remote Dashboards</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">Allows off-site managers and logistics partners to track production rates and shipping schedules securely via web browsers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    function syncHashTab() {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const radio = document.getElementById(id);
+        if (radio && radio.type === 'radio') {
+          radio.checked = true;
+        }
+      }
+    }
+    syncHashTab();
+    window.addEventListener('hashchange', syncHashTab);
+  </script>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* Tabs layout css (Zero-JS) */
+  .services-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .tab-input {
+    display: none;
+  }
+
+  /* Nav Links Stylings */
+  .services-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-bg-alt);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .services-nav__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 14px var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+  }
+
+  .services-nav__item:hover {
+    background: rgba(242, 101, 34, 0.05);
+    color: var(--color-brand-orange);
+  }
+
+  .services-nav__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .services-nav__icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+  }
+
+  .services-nav__item:hover .services-nav__icon {
+    color: var(--color-brand-orange);
+    border-color: rgba(242, 101, 34, 0.2);
+    background-color: var(--color-brand-orange-light);
+  }
+
+  .services-nav__text {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Classic MES/POP Diagram Styling strictly matching /images/0201.jpg with premium alignment */
+  .mes-pop-classic-container {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    margin-top: var(--space-md);
+    text-align: center;
+    user-select: none;
+  }
+
+  .mes-pop-classic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 540px;
+    margin: 0 auto;
+    gap: var(--space-sm);
+  }
+
+  .classic-node {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-brand-orange); /* Changed blue to brand orange */
+    font-family: var(--font-english);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    flex-shrink: 0;
+  }
+
+  .classic-line {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 120px;
+    gap: 0;
+  }
+
+  .classic-connector {
+    height: 1px;
+    background-color: #cbd5e1;
+    flex: 1;
+  }
+
+  .classic-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background-color: var(--color-white);
+    flex-shrink: 0;
+  }
+
+  .classic-circle-outer {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background-color: var(--color-brand-orange-light); /* Changed light gray to light brand orange */
+    border: 1px solid rgba(242, 101, 34, 0.15); /* Added soft brand border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .classic-circle-inner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--brand-gradient); /* Changed blue to brand gradient */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .classic-circle-inner span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+  }
+
+  .classic-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .classic-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-gradient); /* Changed blue dots to brand gradient */
+    display: inline-block;
+  }
+
+  .classic-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    .mes-pop-classic-container {
+      padding: var(--space-lg) var(--space-md);
+    }
+    
+    .mes-pop-classic {
+      gap: var(--space-xs);
+      max-width: 100%;
+    }
+    
+    .classic-node {
+      font-size: 20px;
+    }
+    
+    .classic-line {
+      max-width: 60px;
+    }
+    
+    .classic-circle-outer {
+      width: 90px;
+      height: 90px;
+    }
+    
+    .classic-circle-inner {
+      width: 72px;
+      height: 72px;
+    }
+    
+    .classic-circle-inner span {
+      font-size: 10px;
+    }
+    
+    .classic-desc {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+
+  /* Content Panel Base Styling */
+  .services-content {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .services-panel {
+    display: none;
+    animation: fadeIn var(--transition-base) forwards;
+  }
+
+  .panel-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .panel-lead {
+    font-size: var(--font-size-md);
+    color: var(--color-brand-orange);
+    font-weight: 600;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .panel-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .panel-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .panel-section h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-left: var(--space-sm);
+  }
+
+  .panel-section h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: var(--brand-gradient);
+    border-radius: var(--radius-full);
+  }
+
+  .panel-section p {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+  }
+
+  .panel-list {
+    margin-top: var(--space-md);
+    list-style: none;
+  }
+
+  .panel-list li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .panel-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand-orange);
+    font-weight: bold;
+  }
+
+  /* Effect cards styling */
+  .effect-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .effect-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .effect-card__tag {
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-orange);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .info-card {
+    background: var(--color-brand-orange-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .info-card h5 {
+    color: var(--color-brand-orange);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-md);
+  }
+
+  /* Image layouts */
+  .panel-image-wrapper {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+  }
+
+  .panel-image-wrapper img {
+    border-radius: var(--radius-sm);
+    max-height: 480px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* L-CRIS Features */
+  .lcris-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .lcris-feature {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .lcris-feature h5 {
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .lcris-feature p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .lcris-feature img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Heavy steel solution gallery */
+  .heavy-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .gallery-item {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .gallery-item h5 {
+    font-size: var(--font-size-md);
+    color: var(--color-brand-orange);
+    margin-bottom: var(--space-xs);
+  }
+
+  .gallery-item p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .gallery-item img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Table and wrappers */
+  .table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--space-md);
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+  }
+
+  .table-wrapper th {
+    background-color: var(--color-bg-alt);
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-border);
+    font-size: 13px;
+    letter-spacing: -0.01em;
+  }
+
+  .table-wrapper td {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--color-border-light);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .table-wrapper tbody tr:hover {
+    background-color: rgba(12, 107, 214, 0.02);
+  }
+
+  /* SQM features */
+  .sqm-features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .sqm-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    transition: all var(--transition-base);
+    background: var(--color-bg-alt);
+  }
+
+  .sqm-item:hover {
+    border-color: var(--color-brand-orange);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .sqm-item__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .sqm-item__title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-brand-orange);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sqm-item__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Tabs CSS triggers */
+  #tab-pop:checked ~ .services-nav label[for="tab-pop"],
+  #tab-mics:checked ~ .services-nav label[for="tab-mics"],
+  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"],
+  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"],
+  #tab-web:checked ~ .services-nav label[for="tab-web"] {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  #tab-pop:checked ~ .services-nav label[for="tab-pop"] .services-nav__icon,
+  #tab-mics:checked ~ .services-nav label[for="tab-mics"] .services-nav__icon,
+  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"] .services-nav__icon,
+  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"] .services-nav__icon,
+  #tab-web:checked ~ .services-nav label[for="tab-web"] .services-nav__icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    border-color: transparent;
+  }
+
+  #tab-pop:checked ~ .services-content #panel-pop,
+  #tab-mics:checked ~ .services-content #panel-mics,
+  #tab-lcris:checked ~ .services-content #panel-lcris,
+  #tab-sqm:checked ~ .services-content #panel-sqm,
+  #tab-web:checked ~ .services-content #panel-web {
+    display: block;
+  }
+
+  .mb-lg {
+    margin-bottom: var(--space-lg);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 1023px) {
+    .services-container {
+      grid-template-columns: 1fr;
+    }
+
+    .services-nav {
+      flex-direction: row;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: var(--space-sm);
+    }
+
+    .services-nav__item {
+      flex: 1;
+      justify-content: center;
+      padding: 10px 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .services-content {
+      padding: var(--space-md);
+    }
+
+    .panel-title {
+      font-size: var(--font-size-xl);
+    }
+
+    .effect-cards,
+    .sqm-features-list {
+      grid-template-columns: 1fr;
+    }
+
+    .sqm-item {
+      padding: var(--space-md);
+    }
+  }
+</style>

@@ -1,0 +1,753 @@
+---
+// About Us Page (English) — ISSOFT Software Co.,Ltd (Feedback Incorporated Redesign)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/about/';
+
+// Modern corporate SVG icons for the 5 core values
+const iconMap = {
+  cpu: `<svg xmlns="http://www.w3.org/2000/svg" class="vision-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="16" height="16" rx="2" />
+    <rect x="9" y="9" width="6" height="6" />
+    <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
+  </svg>`,
+  users: `<svg xmlns="http://www.w3.org/2000/svg" class="vision-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>`,
+  lightbulb: `<svg xmlns="http://www.w3.org/2000/svg" class="vision-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+    <path d="M9 18h6M10 22h4" />
+  </svg>`,
+  shield: `<svg xmlns="http://www.w3.org/2000/svg" class="vision-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="m9 11 2 2 4-4" />
+  </svg>`,
+  chart: `<svg xmlns="http://www.w3.org/2000/svg" class="vision-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m22 7-8.5 8.5-5-5L2 17" />
+    <path d="M16 7h6v6" />
+  </svg>`,
+};
+
+const visions = [
+  {
+    icon: 'cpu',
+    title: 'Core Technology',
+    desc: 'Supply highly adaptable solutions with zero vendor-locks, backed by proprietary L-CRIS framework and raw machine controls.',
+  },
+  {
+    icon: 'users',
+    title: 'Human Centered',
+    desc: 'Design intuitive shop-floor interfaces to maximize worker execution rates and ensure operational safety.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'Innovation',
+    desc: 'Quickly capture technological evolutions, spanning both Windows desktop C/S solutions and modern web architectures.',
+  },
+  {
+    icon: 'shield',
+    title: 'Client Trust',
+    desc: 'Go beyond software installations to provide proactive maintenance services and customized systems consulting.',
+  },
+  {
+    icon: 'chart',
+    title: 'Value Creation',
+    desc: 'Drive real financial margins for clients by reducing material scrap and blocking defect escapes.',
+  },
+];
+---
+
+<BaseLayout
+  title="About Us | ISSOFT Software Co.,Ltd"
+  description="Discover ISSOFT's VISION and organizational structures built on raw engineering capabilities, human respect, and client trust."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page Header">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/en/">Home</a>
+        <span>&gt;</span>
+        <span>About Us</span>
+      </div>
+      <h1 class="page-hero__title">About Us</h1>
+      <p class="page-hero__desc">Your trusted IT partner for industrial success, ISSOFT.</p>
+    </div>
+  </section>
+
+  <!-- Company Intro Section -->
+  <section class="section" aria-labelledby="intro-title">
+    <div class="container">
+      <!-- Left-Right Split Greeting Layout (Left: Paper Card, Right: CI Wrapper) (English) -->
+      <div class="about-intro fade-in">
+        <div class="about-greeting-card">
+          <h2 class="greeting-title" id="intro-title">CEO Greetings</h2>
+          <div class="greeting-divider"></div>
+          
+          <div class="greeting-body">
+            <p>
+              ISSOFT has built robust engineering expertise and an extensive track record in factory automation, smart manufacturing, and enterprise systems integration (SI). We guide our clients through complex industrial challenges by delivering optimal process modeling and highly tailored software solutions that maximize corporate value.
+            </p>
+            <p>
+              Our dedicated team is committed to thoroughly understanding customer requirements and delivering high-fidelity IT infrastructure, serving as a reliable partner that values client trust above all.
+            </p>
+          </div>
+
+          <div class="greeting-signature">
+            <p>We will be your successful business partner.</p>
+            <p>Thank you for your endless support.</p>
+            <strong class="greeting-sign-text">ISSOFT CEO & Crew</strong>
+          </div>
+        </div>
+        
+        <div class="about-intro__side-column">
+          <div class="about-intro__image-wrapper">
+            <img src="/images/ci1.png" alt="ISSOFT CI Logo decoration" class="about-intro__ci-img" loading="lazy" />
+            <span class="about-intro__ci-text">ISSOFT Co., Ltd.</span>
+          </div>
+          
+          <div class="supplier-cert-box">
+            <div class="supplier-cert-box__badge">Official</div>
+            <div class="supplier-cert-box__content">
+              <h4>Ministry of SMEs and Startups (MSS) Certified Smart Factory Supplier</h4>
+              <p>
+                ISSOFT has <strong>successfully deployed smart factory projects under national funding programs since 2016</strong>. We are officially registered in the smart factory supplier pool of the MSS and TIPA.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section (Concise Numbers instead of Emojis - Feedback #2) -->
+  <section class="section section--alt" aria-labelledby="vision-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="vision-title">VISION</h2>
+        <p class="section__subtitle">ISSOFT's 5 Core Commitments to Our Valued Clients</p>
+      </div>
+
+      <div class="vision-grid-concise">
+        {visions.map((v) => (
+          <div class="vision-card fade-in">
+            <div class="vision-card__header">
+              <div class="vision-card__icon-container">
+                <Fragment set:html={iconMap[v.icon]} />
+              </div>
+              <h3 class="vision-card__title">{v.title}</h3>
+            </div>
+            <p class="vision-card__text">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Organization Section (Refined HTML/CSS Org Tree - Connector Alignment - Feedback #1) -->
+  <section class="section" aria-labelledby="org-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="org-title">Organization Chart</h2>
+        <p class="section__subtitle">Organizational structure built to deliver quality smart factory solutions and client trust</p>
+      </div>
+      
+      <div class="org-tree-wrapper fade-in">
+        <div class="org-dot-pattern"></div> <!-- Ambient grid pattern -->
+
+        <!-- Root Node (CEO) -->
+        <div class="org-node org-node--ceo">
+          <span class="org-node__badge">PRESIDENT</span>
+          <strong>CEO</strong>
+        </div>
+
+        <!-- Vertical Spacer block to guarantee alignment spacing before branches (Feedback #1) -->
+        <div class="org-spacer-trunk"></div>
+
+        <div class="org-tree-branches">
+          <!-- Branch 1: Development Dept -->
+          <div class="org-branch-column org-branch-column--dev">
+            <div class="org-node org-node--dept org-node--dept-dev">
+              <span class="dept-badge">ENGINEERING</span>
+              <strong>Development Dept.</strong>
+            </div>
+            <div class="org-tree-subnodes">
+              <!-- Dev 1 Team -->
+              <div class="org-node org-node--team org-node--team-dev">
+                <strong class="team-name">Dev Team 1</strong>
+                <span class="team-desc">MES / POP</span>
+              </div>
+              <!-- Dev 2 Team -->
+              <div class="org-node org-node--team org-node--team-dev">
+                <strong class="team-name">Dev Team 2</strong>
+                <span class="team-desc">Web / Mobile</span>
+              </div>
+              <!-- R&D -->
+              <div class="org-node org-node--team org-node--team-dev">
+                <strong class="team-name">R&D Department</strong>
+                <span class="team-desc">L-CRIS / Core Tech</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 2: Support Dept -->
+          <div class="org-branch-column org-branch-column--support">
+            <div class="org-node org-node--dept org-node--dept-support">
+              <span class="dept-badge">BUSINESS SUPPORT</span>
+              <strong>Support Dept.</strong>
+            </div>
+            <div class="org-tree-subnodes">
+              <!-- Sales & Tech -->
+              <div class="org-node org-node--team org-node--team-support">
+                <strong class="team-name">Sales & Technology</strong>
+                <span class="team-desc">Customer Relations</span>
+              </div>
+              <!-- Planning & Admin -->
+              <div class="org-node org-node--team org-node--team-support">
+                <strong class="team-name">Planning & Admin.</strong>
+                <span class="team-desc">Planning & Finance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* Refactored Left-Right Split Greeting Layout */
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: var(--space-2xl);
+    align-items: stretch; /* Make both columns the same height */
+  }
+
+  /* Left Greeting Card (Parchment Paper style) */
+  .about-greeting-card {
+    background-color: #fdfdfa; /* Warm letterhead paper ivory color */
+    border: 1px solid #e8e6df; /* Soft warm border */
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl) var(--space-xl);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-greeting-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-xl);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+    background-size: 100% 24px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .greeting-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs); /* Reduced spacing above divider */
+    position: relative;
+    display: inline-block;
+  }
+
+  .greeting-body {
+    z-index: 2;
+    position: relative;
+    margin-bottom: var(--space-lg);
+  }
+
+  .greeting-body p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.85;
+    margin-bottom: var(--space-md);
+    text-align: center;
+    word-break: keep-all;
+  }
+
+  .greeting-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .greeting-signature {
+    z-index: 2;
+    position: relative;
+    border-top: 1px dashed #e2e0d9;
+    padding-top: var(--space-lg);
+    max-width: 480px;
+    margin: auto auto 0 auto; /* push to bottom and center */
+    width: 100%;
+  }
+
+  .greeting-signature p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: var(--space-xs); /* Increased line-to-line spacing slightly */
+  }
+
+  .greeting-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--brand-gradient);
+    margin: 0 auto var(--space-lg) auto;
+  }
+
+  .greeting-sign-text {
+    display: block; /* Set block to apply top margin correctly */
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-xl); /* Added comfortable 24px margin above sign text */
+  }
+
+  /* Right Side Stacked Column */
+  .about-intro__side-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .about-intro__image-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack vertically for logo and text */
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg-alt);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border-light);
+    flex: 0.9;
+    min-height: 150px;
+    gap: var(--space-xs);
+  }
+
+  .about-intro__ci-img {
+    max-width: 90%; /* Enlarged from 82% */
+    max-height: 110px; /* Enlarged from 90px */
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .about-intro__ci-text {
+    font-size: var(--font-size-md); /* Enlarged from base (16px) to md (18px) */
+    font-weight: 800; /* Extra bold */
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    margin-top: var(--space-xs);
+  }
+
+  /* Embedded Supplier certification box (Vertical Layout) */
+  .supplier-cert-box {
+    background: var(--color-brand-orange-light);
+    border: 1px solid rgba(242, 101, 34, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column; /* Stack vertically for tight side column */
+    gap: var(--space-xs);
+    justify-content: center;
+    flex: 1.1; /* Reduced weight from 1.3 to remove excess empty space */
+    text-align: left;
+  }
+
+  .supplier-cert-box__badge {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+    font-size: var(--font-size-xs); /* Increased from 9px to xs (12px) */
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .supplier-cert-box__content h4 {
+    font-size: var(--font-size-base); /* Increased from sm (14px) to base (16px) */
+    font-weight: 700;
+    color: var(--color-brand-orange);
+    margin-bottom: var(--space-md); /* Increased spacing to 16px (1 full text line space) */
+    margin-top: var(--space-xs);
+    line-height: 1.45; /* Comfortable line height for title */
+    word-break: keep-all; /* Prevent awkward letter wrapping */
+  }
+
+  .supplier-cert-box__content p {
+    font-size: var(--font-size-sm); /* Increased from 12px to sm (14px) */
+    color: var(--color-text-primary);
+    line-height: 1.65; /* Elegant line height for body */
+    margin: 0;
+    word-break: keep-all; /* Prevent awkward letter wrapping */
+  }
+
+  /* Simplified Vision Grid (Concise digital badges instead of emojis) */
+  .vision-grid-concise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .vision-grid-concise > div:nth-child(4),
+  .vision-grid-concise > div:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .vision-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all var(--transition-base);
+  }
+
+  .vision-card:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+
+  .vision-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Elegant icon container matched to main page (48x48, brand-gradient hover) */
+  .vision-card__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-brand-orange-light);
+    color: var(--color-brand-orange);
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .vision-card__icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    transition: transform var(--transition-base);
+  }
+
+  /* Micro-animation on hover */
+  .vision-card:hover .vision-card__icon-container {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(242, 101, 34, 0.25);
+  }
+
+  .vision-card:hover .vision-card__icon {
+    transform: scale(1.1);
+  }
+
+  .vision-card__title {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .vision-card__text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Premium Org Tree (Trunk Connector & Alignments Fixed - Feedback #1) */
+  .org-tree-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-3xl) 0;
+    background-color: var(--color-white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .org-dot-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .org-node {
+    padding: 14px 22px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    min-width: 200px;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+    z-index: 2;
+  }
+
+  .org-node:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* CEO Node Stylings */
+  .org-node--ceo {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+    font-weight: 800;
+    border: none;
+    font-size: var(--font-size-md);
+    position: relative;
+    box-shadow: 0 8px 24px rgba(242, 101, 34, 0.2);
+  }
+
+  .org-node__badge {
+    display: block;
+    font-family: var(--font-english);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 2px;
+  }
+
+  /* Spacer Trunk block to provide vertical spacer line (Feedback #1) */
+  .org-spacer-trunk {
+    position: relative;
+    width: 2px;
+    height: 64px; /* Increased from 48px to guarantee clear spacing before branching */
+    background-color: var(--color-brand-orange);
+    z-index: 2;
+  }
+
+  .org-tree-branches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3xl);
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+  }
+
+  .org-branch-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Centered vertical dropdown connector from horizontal line to department nodes */
+  .org-branch-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 32px;
+    background-color: var(--color-brand-orange);
+    z-index: 2;
+  }
+
+  /* Mathematically centered horizontal connectors that meet in the middle of the gap */
+  .org-branch-column::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: var(--color-brand-orange);
+    z-index: 1;
+  }
+
+  .org-branch-column--dev::after {
+    left: 50%;
+    width: calc(50% + var(--space-3xl) / 2);
+  }
+
+  .org-branch-column--support::after {
+    right: 50%;
+    width: calc(50% + var(--space-3xl) / 2);
+  }
+
+  /* Dept Node Stylings */
+  .org-node--dept {
+    color: var(--color-white);
+    border: none;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    margin-top: 32px; /* starts after dropdown connector line */
+  }
+
+  .org-node--dept-dev {
+    background-color: #2D3436; /* Dark slate */
+  }
+
+  .org-node--dept-support {
+    background-color: #4A5568; /* Slate gray */
+  }
+
+  .dept-badge {
+    font-size: 8px;
+    font-weight: 700;
+    opacity: 0.8;
+    margin-bottom: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .org-tree-subnodes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    position: relative;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* Vertical line from Dept to team nodes */
+  .org-tree-subnodes::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background-color: var(--color-border-light);
+    z-index: 1;
+  }
+
+  /* Team Nodes decorated with descriptions */
+  .org-node--team {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    min-width: 220px;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--color-border-light);
+    z-index: 2;
+  }
+
+  .org-node--team-dev {
+    border-left: 4px solid var(--color-brand-orange);
+  }
+
+  .org-node--team-support {
+    border-left: 4px solid #1A1D23;
+  }
+
+  /* Hover color change based on category */
+  .org-node--team-dev:hover {
+    border-color: var(--color-brand-orange);
+    background-color: var(--color-brand-orange-light);
+  }
+
+  .org-node--team-support:hover {
+    border-color: #1A1D23;
+    background-color: var(--color-bg-alt);
+  }
+
+  .team-name {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+
+  .team-desc {
+    font-family: var(--font-english);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-brand-orange);
+  }
+
+  .org-node--team-support .team-desc {
+    color: var(--color-text-secondary);
+  }
+
+  /* Responsive styling */
+  @media (max-width: 1023px) {
+    .about-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .about-intro__image-wrapper {
+      min-height: auto;
+      padding: var(--space-lg);
+    }
+
+    .vision-grid-concise {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .supplier-cert-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .vision-grid-concise {
+      grid-template-columns: 1fr;
+    }
+
+    .org-tree-branches {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    /* Remove connectors on stack view to avoid visual bugs */
+    .org-tree-branches::before,
+    .org-branch-column::before,
+    .org-branch-column::after,
+    .org-spacer-trunk {
+      display: none;
+    }
+
+    .org-node--dept {
+      margin-top: 0;
+    }
+
+    .org-tree-subnodes::before {
+      bottom: 28px;
+    }
+  }
+</style>

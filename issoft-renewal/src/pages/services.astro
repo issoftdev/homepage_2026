@@ -1,0 +1,961 @@
+---
+// 사업안내 Page — (주)이즈소프트 (피드백 반영 리뉴얼)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lang = 'ko';
+const currentPath = '/services/';
+---
+
+<BaseLayout
+  title="사업안내 | (주)이즈소프트"
+  description="POP/MES 스마트공장 솔루션, MICS 설비제어 모니터링, L-CRIS 초고속 C/S 윈도우 프레임워크, 현장 품질경영(SQM) 및 웹기반 맞춤 솔루션을 소개합니다."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="페이지 헤더">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/">홈</a>
+        <span>&gt;</span>
+        <span>사업안내</span>
+      </div>
+      <h1 class="page-hero__title">Our Services</h1>
+      <p class="page-hero__desc">디지털 전환을 선도하는 이즈소프트의 지능형 스마트 제조 솔루션군을 소개합니다.</p>
+    </div>
+  </section>
+
+  <!-- Service Tabs Section -->
+  <section class="section" aria-labelledby="services-main-title">
+    <div class="container">
+      <h2 class="sr-only" id="services-main-title">솔루션 목록</h2>
+
+      <!-- CSS Tabs implementation (Zero-JS) -->
+      <div class="services-container">
+        <!-- Radio inputs for active tab -->
+        <input type="radio" name="service-tab" id="tab-pop" class="tab-input" checked />
+        <input type="radio" name="service-tab" id="tab-mics" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-lcris" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-sqm" class="tab-input" />
+        <input type="radio" name="service-tab" id="tab-web" class="tab-input" />
+
+        <!-- Tab Labels / Navigation -->
+        <div class="services-nav">
+          <label for="tab-pop" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">POP / MES</span>
+          </label>
+          <label for="tab-mics" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">MICS 설비제어</span>
+          </label>
+          <label for="tab-lcris" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">L-CRIS 개발프레임</span>
+          </label>
+          <label for="tab-sqm" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">현장 품질관리</span>
+          </label>
+          <label for="tab-web" class="services-nav__item">
+            <div class="services-nav__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <span class="services-nav__text">웹기반 맞춤 솔루션</span>
+          </label>
+        </div>
+
+        <!-- Tab Content Areas -->
+        <div class="services-content">
+          <!-- 1. POP/MES Content -->
+          <div class="services-panel" id="panel-pop">
+            <h3 class="panel-title">POP / MES (생산시점 정보화 및 제조실행 통합 관리)</h3>
+            <p class="panel-lead">실시간 데이터 파이프라인 구축을 통한 생산 프로세스 투명성 및 지능화 확보</p>
+
+            <div class="panel-section">
+              <h4>POP(Point Of Production) & MES 솔루션 개요</h4>
+              <p>이즈소프트의 POP/MES 시스템은 스마트 제조 현장의 심장부 역할을 수행합니다. 단순한 실적 기록을 넘어, 온라인 네트워크를 통하여 생산 현장에서 실시간으로 발생하는 원천 데이터(계획 대비 실적, 설비 비가동 원인분석, 불출 이력, 공정 재공품, 자재 수율 등)를 실시간으로 집계, 연동하여 공정 병목을 시각화하고 즉각적인 현장 제어를 가능하게 하는 현장 밀착형 통합 정보 시스템입니다.</p>
+            </div>
+
+            <div class="panel-section grid grid--2">
+              <div>
+                <h4>도입 목적 및 배경</h4>
+                <p>생산 유연성을 높이고 관리 손실을 예방하기 위해, 실시간 현업 데이터 기반의 의사결정 체계를 수립합니다. 현장 관리자가 즉각적으로 이상 상황을 감지하고 조치하여 가동 이익을 보전할 수 있도록 최적의 가시성을 제공합니다.</p>
+                <ul class="panel-list">
+                  <li>실시간 작업 진척도 모니터링을 통한 정확한 납기 예측</li>
+                  <li>공정 데이터 분석을 통한 설비 오작동 조기 예측 및 예방</li>
+                  <li>원자재 투입부터 완제품 포장까지의 공정 추적성(Traceability) 확립</li>
+                  <li>작업 표준 데이터의 현장 실시간 하향 배포로 휴먼 에러 차단</li>
+                </ul>
+              </div>
+              <div>
+                <h4>정량적 도입 효과</h4>
+                <div class="effect-cards">
+                  <div class="effect-card"><span class="effect-card__tag">Lead Time</span> 제조 리드타임 15% 이상 단축</div>
+                  <div class="effect-card"><span class="effect-card__tag">Inventory</span> 공정간 재공 재고 최소화</div>
+                  <div class="effect-card"><span class="effect-card__tag">Yield</span> 설비 가동 효율 및 종합 수율 향상</div>
+                  <div class="effect-card"><span class="effect-card__tag">Cost</span> 관리 공수 절감 및 원가 혁신 달성</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>스마트 공정 데이터 연동 아키텍처</h4>
+              
+              <!-- Redrawn HTML/CSS Diagram based strictly on /images/0201.jpg -->
+              <!-- Redrawn HTML/CSS Classic Diagram based strictly on /images/0201.jpg -->
+              <div class="mes-pop-classic-container">
+                <div class="mes-pop-classic">
+                  <!-- Left Text: MES -->
+                  <div class="classic-node classic-node--mes">MES</div>
+                  
+                  <!-- Left Connector (Dot is near MES) -->
+                  <div class="classic-line classic-line--left">
+                    <div class="classic-dot"></div>
+                    <div class="classic-connector"></div>
+                  </div>
+
+                  <!-- Center Circle (Double circular outline like original image) -->
+                  <div class="classic-circle-outer">
+                    <div class="classic-circle-inner">
+                      <span>생산관리<br/>시스템</span>
+                    </div>
+                  </div>
+
+                  <!-- Right Connector (Dot is near POP) -->
+                  <div class="classic-line classic-line--right">
+                    <div class="classic-connector"></div>
+                    <div class="classic-dot"></div>
+                  </div>
+
+                  <!-- Right Text: POP -->
+                  <div class="classic-node classic-node--pop">POP</div>
+                </div>
+
+                <!-- Three Dots -->
+                <div class="classic-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <!-- Description Text -->
+                <p class="classic-desc">
+                  MES, POP시스템 구축을 통하여 보다 직관적이고 투명한 경영을 하도록 지원하고<br/>
+                  체계적이고 합리적인 생산활동으로 기업 경쟁력 확보를 약속 드립니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. MICS Content -->
+          <div class="services-panel" id="panel-mics">
+            <h3 class="panel-title">MICS (지능형 설비 제어 및 모니터링 솔루션)</h3>
+            <p class="panel-lead">이기종 설비 프로토콜 연동 및 예후 진단을 통한 공정 가동율 보장</p>
+
+            <div class="panel-section">
+              <h4>MICS(Machine Interface & Control System) 개요</h4>
+              <p>MICS는 공장 내 다양한 연식과 제조사별 설비 인터페이스를 표준화하여 손쉽게 동기화 제어하는 지능형 플랫폼입니다. 웹 및 모바일 모니터링 환경을 동시 제공하여 원격지에서도 현장 상태를 직관적으로 분석하고 설비 작동 히스토리 로그의 자동 데이터 자산화를 보장합니다.</p>
+            </div>
+
+            <div class="panel-section">
+              <h4>MICS 핵심 차별점</h4>
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width: 25%">특장점</th>
+                      <th style="width: 75%">기술적 구현 내용</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>PC 기반 고속 분산 제어</strong></td>
+                      <td>멀티스레드 기반의 병렬 제어 알고리즘과 제어 모듈 독립화를 통하여 신속한 Fail-over(오류 대체)를 지원합니다. PC 기반 환경에서도 기존 고가 PLC 하드웨어 수준의 제어 신뢰성과 안정적인 처리 속도를 구현합니다.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>이기종 인터페이스 유연성</strong></td>
+                      <td>제어 모델 에뮬레이션(Simulation Tool) 기능이 탑재되어 물리 장비 부착 전 가상 테스트가 가능합니다. OPC UA, Modbus 등 공정 표준 통신 프로토콜을 모두 지원하여 상위 시스템과의 유연한 결합이 가능합니다.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>신속한 비즈니스 가치 회수</strong></td>
+                      <td>간결한 비주얼 모델링 도구를 내장하여, 별도의 복잡한 원천 코딩 작업 없이 단기간에 고객 맞춤형 설비 모니터링 및 인터랙션 대시보드를 안정적으로 커스터마이징 및 셋업할 수 있습니다.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. L-CRIS Content -->
+          <div class="services-panel" id="panel-lcris">
+            <h3 class="panel-title">L-CRIS (윈도우 C/S 기반 초고속 데이터 제어 프레임워크)</h3>
+            <p class="panel-lead">대용량 연산 고속 처리와 클라이언트-서버(C/S) UI 컴포넌트 자동화 결합</p>
+
+            <div class="panel-section">
+              <h4>L-CRIS(Lean-based Creative Industry Solution) 개요</h4>
+              <p>이즈소프트 R&D 센터의 핵심 기술로 탄생한 L-CRIS는 스마트 공장의 복잡한 대용량 현업 트랜잭션을 지연 없이 처리하기 위한 **C/S(Client/Server) 기반 고성능 Windows 데스크톱 어플리케이션 전용 개발 프레임워크**입니다. 웹 브라우저의 연산 성능 한계를 넘어, Windows 클라이언트 환경에 최적화된 고속 데이터 바인딩 엔진을 탑재하여 현업 사용자가 대기 없이 신속하게 화면을 조율하고 다차원 보고서를 조회할 수 있는 고성능 업무 도구입니다.</p>
+            </div>
+
+            <div class="panel-section">
+              <h4>L-CRIS 핵심 기능 체계</h4>
+
+              <div class="lcris-features">
+                <div class="lcris-feature">
+                  <h5>01 노후 레거시 시스템 고도화 및 커스터마이징 최소화</h5>
+                  <p>C/S 환경 하의 기존 노후화된 업무 화면과 데이터베이스 변경을 최소화하면서 초고속 렌더링 성능을 확보합니다.</p>
+                  <img src="/images/l_cris/1.png" alt="L-CRIS 고속 데이터 브릿지 화면" loading="lazy" />
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>02 Pivot 다차원 분석 및 반응형 차트 자동화</h5>
+                  <p>복잡한 생산량 빅데이터를 윈도우 클라이언트 상에서 한 번의 드래그앤드롭으로 Pivot 분석 그리드로 전환하고, 경영 지표용 세련된 그래프로 자동 시각화합니다.</p>
+                  <div class="grid grid--2">
+                    <img src="/images/l_cris/2.png" alt="Pivot 분석 화면 1" loading="lazy" />
+                    <img src="/images/l_cris/3.png" alt="Pivot 분석 화면 2" loading="lazy" />
+                    <img src="/images/l_cris/4.png" alt="그래프 시각화 1" loading="lazy" />
+                    <img src="/images/l_cris/5.png" alt="그래프 시각화 2" loading="lazy" />
+                  </div>
+                  <img src="/images/l_cris/6.png" alt="대용량 가공 보고서 그리드" style="margin-top: var(--space-md);" loading="lazy" />
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>03 템플릿 기반 화면 빌드 및 버츄얼 복제 엔진</h5>
+                  <p>화면에 렌더링할 조회 조건과 데이터 컬럼을 코드 한 줄 짜지 않고 팝업 매퍼에서 직접 선택해 저장할 수 있으며, 기존 개발된 복잡한 화면 구조를 복제하여 즉시 타 원자재 지표용 그리드로 용도를 변환할 수 있습니다.</p>
+                  <div class="grid grid--2">
+                    <img src="/images/l_cris/7.png" alt="조회 조건 편집 매퍼" loading="lazy" />
+                    <img src="/images/l_cris/8.png" alt="그리드 자동 맵핑" loading="lazy" />
+                  </div>
+                </div>
+
+                <div class="lcris-feature">
+                  <h5>04 다중 연계 조건 처리 및 최적 데이터 표현</h5>
+                  <p>Windows 어플리케이션 리소스를 적극 활용하여 실시간으로 요구되는 미세 필터 조건 및 다양한 다중 연계를 동시 처리하는 엔터프라이즈급 연산 최적화를 제공합니다.</p>
+                  <img src="/images/l_cris/9.png" alt="L-CRIS 복합 대시보드 구조" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- 5. SQM Content -->
+          <div class="services-panel" id="panel-sqm">
+            <h3 class="panel-title">현장 품질관리 시스템 (SQM)</h3>
+            <p class="panel-lead">공정 품질 데이터의 실시간 자산화 및 불량 후공정 유출의 근원적 차단</p>
+
+            <div class="panel-section">
+              <h4>SQM(Shop-floor Quality Management) 개요</h4>
+              <p>스마트 제조 현장의 무결점 품질을 실현하기 위한 실시간 디지털 품질 경영 솔루션입니다. 검사원이 직접 종이 기록지에 손으로 쓰고 사후 입력하던 관행을 타파하고, 현장 태블릿 및 계측기 연동 인터페이스를 활용하여 초품/중품/종품 검사, 작업자 자주 검사, 정밀 치수(Dimension) 실측치, 설비 일상 점검을 현장에서 즉각 입력 및 전산화하여 공정 신뢰성을 극대화합니다.</p>
+            </div>
+
+            <div class="panel-section grid grid--2">
+              <div class="card card--accent">
+                <div class="card__body">
+                  <h5 class="card__title">계측기 연동 및 실시간 검사 데이터 축적</h5>
+                  <p class="card__text">마이크로미터 등 계측 장비와의 블루투스/시리얼 연동을 통해 실시간 계측값을 수동 입력 없이 바로 원장 데이터에 전송하여 품질 신인도를 높입니다.</p>
+                </div>
+              </div>
+              <div class="card card--accent">
+                <div class="card__body">
+                  <h5 class="card__title">실시간 Fool-Proof 알림 통제</h5>
+                  <p class="card__text">측정값이 허용 공차 범위를 초과하는 이상치가 발생하는 즉시, 설비 인터페이스에 락(Lock) 경보를 보내 불량 제품이 후공정으로 전이되는 것을 차단합니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>SQM 솔루션 주요 기능 명세</h4>
+              <div class="sqm-features-list">
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">품질 표준 관리</h5>
+                  <p class="sqm-item__desc">품목별 도면 치수 공차(LSL, USL) 및 검사 항목 맵핑</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">현장 실시간 검사</h5>
+                  <p class="sqm-item__desc">초·중·종물 배치 검사, 자주 검사 모바일 최적화 레이아웃</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">이력 및 추적성 확보</h5>
+                  <p class="sqm-item__desc">고유 바코드/시리얼 연동을 통한 완제품 출하 시점 품질 이력 역추적</p>
+                </div>
+                <div class="sqm-item">
+                  <h5 class="sqm-item__title">품질 분석 대시보드</h5>
+                  <p class="sqm-item__desc">부적합 원인 분석 통계 및 이상 징후 예방 관리 지표 시각화</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Web Custom Solution Content (Added Web Solution) -->
+          <div class="services-panel" id="panel-web">
+            <h3 class="panel-title">웹기반 기업 맞춤형 솔루션 (Web Custom Solution)</h3>
+            <p class="panel-lead">웹 표준에 맞춘 유연한 크로스플랫폼 접근성 및 비즈니스 데이터 유기적 통합</p>
+
+            <div class="panel-section">
+              <h4>웹 기반 맞춤 솔루션 개요</h4>
+              <p>이즈소프트는 최신 웹 표준 프레임워크 기술력을 바탕으로, C/S 환경을 넘어 웹 브라우저만으로 안전하고 신속하게 비즈니스 현황을 파악하고 실행할 수 있는 웹 기반 맞춤형 기업 솔루션을 설계·개발합니다. 모바일, 태블릿, PC 등 이기종 디바이스 환경에서 크로스 브라우저 호환성을 완벽 보장합니다.</p>
+            </div>
+
+            <div class="panel-section grid grid--3">
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Web ERP & Portal</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">웹 통합 업무 포털</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">구매, 생산, 재고, 영업 등 각 부서의 핵심 성과 지표(KPI)와 원장 데이터를 웹 기반 단일 채널로 연결하여 실시간 통합 조회 및 연계 관리를 지원합니다.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Responsive WebApp</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">모바일 현장 입력 모듈</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">자재 입고, 바코드 스캔, 실하 출고 등록 등 야외 및 보관 창고 현장 작업자가 스마트폰 또는 태블릿 카메라 스캔을 통해 실시간으로 처리할 수 있는 반응형 모바일 웹앱을 공급합니다.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__body">
+                  <span class="badge">Live Monitoring</span>
+                  <h5 class="card__title" style="margin-top: var(--space-md);">웹 대시보드 리포팅</h5>
+                  <p class="card__text" style="font-size: var(--font-size-sm);">원격지 지사나 파트너 고객사에서도 실시간 공정 수율과 납기 진척 상황을 로그인 하나로 보안 브라우저 내에서 즉각 확인 및 PDF/엑셀로 출력할 수 있습니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    function syncHashTab() {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const radio = document.getElementById(id);
+        if (radio && radio.type === 'radio') {
+          radio.checked = true;
+        }
+      }
+    }
+    syncHashTab();
+    window.addEventListener('hashchange', syncHashTab);
+  </script>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* Tabs layout css (Zero-JS) */
+  .services-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .tab-input {
+    display: none;
+  }
+
+  /* Nav Links Stylings */
+  .services-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-bg-alt);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .services-nav__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 14px var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+  }
+
+  .services-nav__item:hover {
+    background: rgba(242, 101, 34, 0.05);
+    color: var(--color-brand-orange);
+  }
+
+  .services-nav__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .services-nav__icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+  }
+
+  .services-nav__item:hover .services-nav__icon {
+    color: var(--color-brand-orange);
+    border-color: rgba(242, 101, 34, 0.2);
+    background-color: var(--color-brand-orange-light);
+  }
+
+  .services-nav__text {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Classic MES/POP Diagram Styling strictly matching /images/0201.jpg with premium alignment */
+  .mes-pop-classic-container {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    margin-top: var(--space-md);
+    text-align: center;
+    user-select: none;
+  }
+
+  .mes-pop-classic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 540px;
+    margin: 0 auto;
+    gap: var(--space-sm);
+  }
+
+  .classic-node {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-brand-orange); /* Changed blue to brand orange */
+    font-family: var(--font-english);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    flex-shrink: 0;
+  }
+
+  .classic-line {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 120px;
+    gap: 0;
+  }
+
+  .classic-connector {
+    height: 1px;
+    background-color: #cbd5e1;
+    flex: 1;
+  }
+
+  .classic-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background-color: var(--color-white);
+    flex-shrink: 0;
+  }
+
+  .classic-circle-outer {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background-color: var(--color-brand-orange-light); /* Changed light gray to light brand orange */
+    border: 1px solid rgba(242, 101, 34, 0.15); /* Added soft brand border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .classic-circle-inner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--brand-gradient); /* Changed blue to brand gradient */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .classic-circle-inner span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+  }
+
+  .classic-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .classic-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-gradient); /* Changed blue dots to brand gradient */
+    display: inline-block;
+  }
+
+  .classic-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    .mes-pop-classic-container {
+      padding: var(--space-lg) var(--space-md);
+    }
+    
+    .mes-pop-classic {
+      gap: var(--space-xs);
+      max-width: 100%;
+    }
+    
+    .classic-node {
+      font-size: 20px;
+    }
+    
+    .classic-line {
+      max-width: 60px;
+    }
+    
+    .classic-circle-outer {
+      width: 90px;
+      height: 90px;
+    }
+    
+    .classic-circle-inner {
+      width: 72px;
+      height: 72px;
+    }
+    
+    .classic-circle-inner span {
+      font-size: 10px;
+    }
+    
+    .classic-desc {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+
+  /* Content Panel Base Styling */
+  .services-content {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .services-panel {
+    display: none;
+    animation: fadeIn var(--transition-base) forwards;
+  }
+
+  .panel-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .panel-lead {
+    font-size: var(--font-size-md);
+    color: var(--color-brand-orange);
+    font-weight: 600;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .panel-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .panel-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .panel-section h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-left: var(--space-sm);
+  }
+
+  .panel-section h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: var(--brand-gradient);
+    border-radius: var(--radius-full);
+  }
+
+  .panel-section p {
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+  }
+
+  .panel-list {
+    margin-top: var(--space-md);
+    list-style: none;
+  }
+
+  .panel-list li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .panel-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand-orange);
+    font-weight: bold;
+  }
+
+  /* Effect cards styling */
+  .effect-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .effect-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .effect-card__tag {
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-orange);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .info-card {
+    background: var(--color-brand-orange-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .info-card h5 {
+    color: var(--color-brand-orange);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-md);
+  }
+
+  /* Image layouts */
+  .panel-image-wrapper {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+  }
+
+  .panel-image-wrapper img {
+    border-radius: var(--radius-sm);
+    max-height: 480px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* L-CRIS Features */
+  .lcris-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .lcris-feature {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .lcris-feature h5 {
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .lcris-feature p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .lcris-feature img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Heavy steel solution gallery */
+  .heavy-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .gallery-item {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .gallery-item h5 {
+    font-size: var(--font-size-md);
+    color: var(--color-brand-orange);
+    margin-bottom: var(--space-xs);
+  }
+
+  .gallery-item p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .gallery-item img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Table and wrappers */
+  .table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--space-md);
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+  }
+
+  .table-wrapper th {
+    background-color: var(--color-bg-alt);
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-border);
+    font-size: 13px;
+    letter-spacing: -0.01em;
+  }
+
+  .table-wrapper td {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--color-border-light);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .table-wrapper tbody tr:hover {
+    background-color: rgba(12, 107, 214, 0.02);
+  }
+
+  /* SQM features */
+  .sqm-features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .sqm-item {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    transition: all var(--transition-base);
+  }
+
+  .sqm-item:hover {
+    border-color: var(--color-brand-orange);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .sqm-item__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .sqm-item__title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-brand-orange);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sqm-item__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Tabs CSS triggers */
+  #tab-pop:checked ~ .services-nav label[for="tab-pop"],
+  #tab-mics:checked ~ .services-nav label[for="tab-mics"],
+  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"],
+  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"],
+  #tab-web:checked ~ .services-nav label[for="tab-web"] {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  #tab-pop:checked ~ .services-nav label[for="tab-pop"] .services-nav__icon,
+  #tab-mics:checked ~ .services-nav label[for="tab-mics"] .services-nav__icon,
+  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"] .services-nav__icon,
+  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"] .services-nav__icon,
+  #tab-web:checked ~ .services-nav label[for="tab-web"] .services-nav__icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    border-color: transparent;
+  }
+
+  #tab-pop:checked ~ .services-content #panel-pop,
+  #tab-mics:checked ~ .services-content #panel-mics,
+  #tab-lcris:checked ~ .services-content #panel-lcris,
+  #tab-sqm:checked ~ .services-content #panel-sqm,
+  #tab-web:checked ~ .services-content #panel-web {
+    display: block;
+  }
+
+  .mb-lg {
+    margin-bottom: var(--space-lg);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 1023px) {
+    .services-container {
+      grid-template-columns: 1fr;
+    }
+
+    .services-nav {
+      flex-direction: row;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: var(--space-sm);
+    }
+
+    .services-nav__item {
+      flex: 1;
+      justify-content: center;
+      padding: 10px 16px;
+    }
+
+    .sqm-features-list {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .sqm-item {
+      padding: var(--space-md);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .services-content {
+      padding: var(--space-md);
+    }
+
+    .panel-title {
+      font-size: var(--font-size-xl);
+    }
+
+    .effect-cards,
+    .sqm-features-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

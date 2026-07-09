@@ -1,0 +1,14 @@
+# Astro build output and dependencies
+issoft-renewal/dist/
+issoft-renewal/.astro/
+issoft-renewal/node_modules/
+
+# Local configuration and logs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Legacy website backup
+issoft_home_20180212/

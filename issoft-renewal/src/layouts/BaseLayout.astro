@@ -1,0 +1,135 @@
+---
+// BaseLayout.astro — 공통 레이아웃 (head, meta, hreflang, JSON-LD)
+import '../styles/global.css';
+export interface Props {
+  title: string;
+  description: string;
+  lang?: 'ko' | 'en';
+  currentPath?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  lang = 'ko',
+  currentPath = '/',
+  ogImage = '/images/og-image.png',
+} = Astro.props;
+
+const siteUrl = 'https://issoft.kr';
+
+// Build hreflang alternate URLs
+const koPath = currentPath.startsWith('/en/')
+  ? currentPath.replace('/en/', '/')
+  : currentPath;
+const enPath = currentPath.startsWith('/en/')
+  ? currentPath
+  : `/en${currentPath}`;
+
+const canonicalUrl = `${siteUrl}${currentPath}`;
+
+// JSON-LD Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ISSOFT Software Co.,Ltd',
+  alternateName: '(주)이즈소프트',
+  url: siteUrl,
+  logo: `${siteUrl}/images/ISSOFT_CI.png`,
+  description: lang === 'ko'
+    ? '기업정보화 솔루션 전문기업 — 공장자동화, 산업자동화, SI 분야의 최적 비즈니스 솔루션 제공'
+    : 'The Expert in Business Informatization — Factory Automation, Industrial Automation, SI Solutions',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '공항로56길 5, 이즈빌딩 5층',
+    addressLocality: '대구광역시 동구',
+    postalCode: '41051',
+    addressCountry: 'KR',
+  },
+  telephone: '+82-53-743-8235',
+  email: 'ckkang@issoftware.co.kr',
+  foundingDate: '2013-11',
+  sameAs: [],
+};
+---
+
+<!doctype html>
+<html lang={lang === 'ko' ? 'ko-KR' : 'en-US'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="ko" href={`${siteUrl}${koPath}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${koPath}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content="ISSOFT" />
+    <meta property="og:locale" content={lang === 'ko' ? 'ko_KR' : 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/ci2.png" />
+    <link rel="apple-touch-icon" href="/images/ci2.png" />
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Global Styles loaded via Astro import -->
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">
+      {lang === 'ko' ? '본문 바로가기' : 'Skip to content'}
+    </a>
+
+    <slot name="header" />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+
+    <!-- Minimal JS: Scroll fade-in observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.fade-in').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

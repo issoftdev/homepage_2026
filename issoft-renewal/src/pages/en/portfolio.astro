@@ -1,0 +1,297 @@
+---
+// Portfolio Page (English) — ISSOFT Software Co.,Ltd
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const currentPath = '/en/portfolio/';
+
+// 18 Reference projects
+const projects = [
+  {
+    id: 'p16',
+    name: 'THE MISO',
+    sector: 'Food Mfg',
+    desc: 'Established POP/MES system across complex food seasoning, sauces, and rice cake production lines to collect real-time yield logs.',
+    logo: '/images/port/themiso_thum.png',
+  },
+  {
+    id: 'p17',
+    name: 'E.O.S',
+    sector: 'Medical Device',
+    desc: 'Engineered high-fidelity telemetry controls and live process status monitoring systems for contact lens automation lines.',
+    logo: '/images/port/EOS_thum.png',
+  },
+  {
+    id: 'p18',
+    name: 'JINKYUNG PACKAGING',
+    sector: 'Packaging',
+    desc: 'Integrated digital signaling for gravure print rollers and composite extruders to monitor live product quality and output counts.',
+    logo: '/images/port/jk_thum.png',
+  },
+  {
+    id: 'p13',
+    name: 'JVM',
+    sector: 'Automation',
+    desc: 'Configured integrated MES and automated assembly logic tracking systems for pharmacy automated dispenser production floors.',
+    logo: '/images/port/jvm_thum.png',
+  },
+  {
+    id: 'p14',
+    name: 'ASIA TECH',
+    sector: 'Agriculture',
+    desc: 'Deployed plant-wide MES systems on tractor main assembly structures to secure finished product traceability logs.',
+    logo: '/images/port/asia_thum.png',
+  },
+  {
+    id: 'p15',
+    name: 'YURIM INDUSTRIES',
+    sector: 'Heavy Industry',
+    desc: 'Constructed custom Nesting Cutting Manager databases for ship engine and military hardware raw steel cutting setups.',
+    logo: '/images/port/yurim_thum.png',
+  },
+  {
+    id: 'p10',
+    name: 'DENTIS',
+    sector: 'Bio-Health',
+    desc: 'Implemented real-time SQM inspection interfaces on medical implant chemical wash lines and dental LED assembly tables.',
+    logo: '/images/port/dentis_thum.png',
+  },
+  {
+    id: 'p11',
+    name: 'SANGSHIN BRAKE',
+    sector: 'Automotive',
+    desc: 'Completed device interface systems for brake pad molding presses in Wuxi, China, linked to central tracking monitors.',
+    logo: '/images/port/SB_thum.png',
+  },
+  {
+    id: 'p12',
+    name: 'DASAN DMC',
+    sector: 'Automotive',
+    desc: 'Configured downtime sensor trackers and stroke counters on heavy suspension metal pressing lines.',
+    logo: '/images/port/DMC_thum.png',
+  },
+  {
+    id: 'p1',
+    name: 'AJIN INDUSTRIES',
+    sector: 'Automotive',
+    desc: 'Created physical signaling links for body frame welding robots to map live OEE dashboards and floor alerts.',
+    logo: '/images/port/ajin_thum.png',
+  },
+  {
+    id: 'p2',
+    name: 'DUKSAN HIGH METAL',
+    sector: 'Semiconductor',
+    desc: 'Designed micro-solder ball quality traceability systems mapping materials to final packaging logs.',
+    logo: '/images/port/duksan_thum.png',
+  },
+  {
+    id: 'p3',
+    name: 'ANDONG TERMINAL',
+    sector: 'Public/Services',
+    desc: 'Engineered kiosk billing controls and central network routers for bus scheduling databases.',
+    logo: '/images/port/andong_thum.png',
+  },
+  {
+    id: 'p7',
+    name: 'WOOSHIN INDUSTRIES',
+    sector: 'Automotive',
+    desc: 'Set up sensor logging terminals for door latch injection molders to analyze machine cycle patterns.',
+    logo: '/images/port/wooshin_thum.png',
+  },
+  {
+    id: 'p8',
+    name: 'AJIN CARINTECH',
+    sector: 'Automotive',
+    desc: 'Wired digital micrometers via Bluetooth to automatically record cylinder dimensional measurements in QA databases.',
+    logo: '/images/port/carintech_thum.png',
+  },
+  {
+    id: 'p6',
+    name: 'ELECTRONIC MALL',
+    sector: 'Retail/IT',
+    desc: 'Engineered regional distribution complex facility routers and billing database systems.',
+    logo: '/images/port/jz_thum.png',
+  },
+  {
+    id: 'p4',
+    name: 'SEAN INDUSTRIES',
+    sector: 'Machinery',
+    desc: 'Built custom robotic welding control interfaces and synchronized schedules for OEM excavator frame assemblies.',
+    logo: '/images/port/sean_thum.png',
+  },
+  {
+    id: 'p5',
+    name: 'STEEL HD',
+    sector: 'Steel Mfg',
+    desc: 'Constructed plate nesting calculators matching sheet remains to cutting records in heavy steel processing centers.',
+    logo: '/images/port/steelhd_thum.png',
+  },
+  {
+    id: 'p9',
+    name: 'SHINYANG TECH',
+    sector: 'Machinery',
+    desc: 'Wired precision CNC controllers to trace mold machining output records and calculate tool life forecasts.',
+    logo: '/images/thumb3.png',
+  },
+];
+---
+
+<BaseLayout
+  title="Portfolio | ISSOFT Software Co.,Ltd"
+  description="Browse ISSOFT's successful solutions implementation cases in manufacturing, automotive, bio-health, and public services."
+  lang={lang}
+  currentPath={currentPath}
+>
+  <Header slot="header" lang={lang} currentPath={currentPath} />
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page Header">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="/en/">Home</a>
+        <span>&gt;</span>
+        <span>Portfolio</span>
+      </div>
+      <h1 class="page-hero__title">Reference</h1>
+      <p class="page-hero__desc">Key reference cases that achieved innovation through ISSOFT solutions.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section" aria-labelledby="portfolio-title">
+    <div class="container">
+      <h2 class="sr-only" id="portfolio-title">Case Studies</h2>
+
+      <!-- Modern vertical card rows (Removed popup dialogs, improved readability) -->
+      <div class="portfolio-list-wrapper">
+        {projects.map((proj, i) => (
+          <div class="portfolio-row-card fade-in" style={`animation-delay: ${i * 0.05}s`}>
+            <!-- Strict container to hold partner logo without stretch -->
+            <div class="portfolio-row-card__logo-wrapper">
+              <img
+                src={proj.logo}
+                alt={`${proj.name} logo`}
+                class="portfolio-row-card__logo"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-row-card__content">
+              <div class="portfolio-row-card__meta">
+                <span class="badge">{proj.sector}</span>
+              </div>
+              <h3 class="portfolio-row-card__title">{proj.name}</h3>
+              <p class="portfolio-row-card__desc">{proj.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+  /* 2-Column Row List Styles for maximum readability */
+  .portfolio-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .portfolio-row-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .portfolio-row-card:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* Logo wrapper container */
+  .portfolio-row-card__logo-wrapper {
+    width: 160px;
+    background-color: var(--color-bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-border-light);
+  }
+
+  /* Force contain aspect ratio strictly to prevent stretching */
+  .portfolio-row-card__logo {
+    max-width: 100%;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Content area */
+  .portfolio-row-card__content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .portfolio-row-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+  }
+
+  .portfolio-row-card__id {
+    font-family: var(--font-english);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .portfolio-row-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .portfolio-row-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 1023px) {
+    .portfolio-list-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .portfolio-row-card {
+      flex-direction: column;
+    }
+
+    .portfolio-row-card__logo-wrapper {
+      width: 100%;
+      height: 120px;
+      border-right: none;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+  }
+</style>
