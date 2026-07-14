@@ -85,39 +85,44 @@ const currentPath = '/contact/';
           <h3 class="contact-form__title">온라인 도입 문의</h3>
           <p class="contact-form__subtitle">이즈소프트의 솔루션에 대한 제안 요청 및 상담 신청서를 남겨주세요.</p>
           
-          <form id="inquiryForm" class="contact-form" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='flex'; document.getElementById('inquiryForm').reset();">
+          <form id="inquiryForm" class="contact-form">
+            <!-- Web3Forms Config -->
+            <input type="hidden" name="access_key" value="e76173f8-6668-4b7e-b384-388e6ca3c0d8" />
+            <input type="hidden" name="subject" value="[이즈소프트 홈페이지] 새로운 온라인 도입 문의 접수" />
+            <input type="hidden" name="from_name" value="이즈소프트 웹사이트" />
+
             <div class="form-row">
               <div class="form-group">
                 <label for="input-name">회사명 / 담당자명 <span class="required">*</span></label>
-                <input type="text" id="input-name" required placeholder="예: (주)이즈소프트 / 홍길동" />
+                <input type="text" id="input-name" name="name" required placeholder="예: (주)이즈소프트 / 홍길동" />
               </div>
               <div class="form-group">
                 <label for="input-contact">연락처 <span class="required">*</span></label>
-                <input type="tel" id="input-contact" required placeholder="예: 010-0000-0000" />
+                <input type="tel" id="input-contact" name="contact" required placeholder="예: 010-0000-0000" />
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="input-email">이메일 주소 <span class="required">*</span></label>
-                <input type="email" id="input-email" required placeholder="example@email.com" />
+                <input type="email" id="input-email" name="email" required placeholder="example@email.com" />
               </div>
               <div class="form-group">
                 <label for="input-category">문의 부문 <span class="required">*</span></label>
-                <select id="input-category" required>
+                <select id="input-category" name="category" required>
                   <option value="">선택해 주세요</option>
-                  <option value="mes">스마트공장 (POP / MES)</option>
-                  <option value="mics">지능형 설비제어 (MICS)</option>
-                  <option value="lcris">L-CRIS 개발프레임워크</option>
-                  <option value="web">웹기반 맞춤 솔루션</option>
-                  <option value="other">기타 비즈니스 문의</option>
+                  <option value="스마트공장 (POP/MES)">스마트공장 (POP / MES)</option>
+                  <option value="지능형 설비제어 (MICS)">지능형 설비제어 (MICS)</option>
+                  <option value="L-CRIS 개발프레임워크">L-CRIS 개발프레임워크</option>
+                  <option value="웹기반 맞춤 솔루션">웹기반 맞춤 솔루션</option>
+                  <option value="기타 비즈니스 문의">기타 비즈니스 문의</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
               <label for="input-message">상세 문의내용 <span class="required">*</span></label>
-              <textarea id="input-message" rows="5" required placeholder="구축하고자 하는 프로젝트의 배경, 요구 사항, 예상 일정 등을 자유롭게 기술해 주시면 전문가가 신속하게 진단해 드립니다."></textarea>
+              <textarea id="input-message" name="message" rows="5" required placeholder="구축하고자 하는 프로젝트의 배경, 요구 사항, 예상 일정 등을 자유롭게 기술해 주시면 전문가가 신속하게 진단해 드립니다."></textarea>
             </div>
 
             <button type="submit" class="btn submit-btn">
@@ -128,7 +133,7 @@ const currentPath = '/contact/';
             </button>
           </form>
 
-          <!-- Success Alert Overlay (Zero-JS UI feedback) -->
+          <!-- Success Alert Overlay -->
           <div id="formSuccess" class="form-success-overlay" style="display: none;">
             <div class="form-success-content">
               <div class="form-success-icon">
@@ -183,6 +188,50 @@ const currentPath = '/contact/';
       "mapWidth" : "100%",
       "mapHeight" : "420"
     }).render();
+
+    // Handle form submit via AJAX
+    const form = document.getElementById('inquiryForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.submit-btn');
+        const submitBtnText = submitBtn.querySelector('span');
+        const originalText = submitBtnText.textContent;
+        
+        submitBtnText.textContent = '전송 중...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          let jsonRes = await response.json();
+          if (response.status == 200) {
+            document.getElementById('formSuccess').style.display = 'flex';
+            form.reset();
+          } else {
+            alert('오류가 발생했습니다: ' + jsonRes.message);
+          }
+        })
+        .catch(error => {
+          alert('전송 중 네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+        })
+        .then(() => {
+          submitBtnText.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+      });
+    }
   </script>
 </BaseLayout>
 
