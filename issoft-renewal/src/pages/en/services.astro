@@ -32,90 +32,82 @@ const currentPath = '/en/services/';
   <!-- Service Tabs Section -->
   <section class="section" aria-labelledby="services-main-title">
     <div class="container">
-      <h2 class="sr-only" id="services-main-title">Our Solutions</h2>
-
+      <h2 class="sr-only" id="services-main-title">Our Solutions</h2>      <!-- Sticky Navigation Bar & Stacked Panels -->
       <div class="services-container">
-        <!-- Radio inputs for active tab -->
-        <input type="radio" name="service-tab" id="tab-pop" class="tab-input" checked />
-        <input type="radio" name="service-tab" id="tab-mics" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-lcris" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-sqm" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-web" class="tab-input" />
-
-        <!-- Tab Labels / Navigation -->
+        <!-- Tab Links / Navigation -->
         <div class="services-nav">
-          <label for="tab-pop" class="services-nav__item">
+          <a href="#tab-pop" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/>
               </svg>
             </div>
             <span class="services-nav__text">POP / MES</span>
-          </label>
-          <label for="tab-mics" class="services-nav__item">
+          </a>
+          <a href="#tab-mics" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/>
               </svg>
             </div>
             <span class="services-nav__text">MICS Control</span>
-          </label>
-          <label for="tab-lcris" class="services-nav__item">
+          </a>
+          <a href="#tab-lcris" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
             <span class="services-nav__text">L-CRIS Framework</span>
-          </label>
-          <label for="tab-sqm" class="services-nav__item">
+          </a>
+          <a href="#tab-sqm" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/>
               </svg>
             </div>
             <span class="services-nav__text">Quality Control (SQM)</span>
-          </label>
-          <label for="tab-web" class="services-nav__item">
+          </a>
+          <a href="#tab-web" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
               </svg>
             </div>
             <span class="services-nav__text">Web Custom Solutions</span>
-          </label>
+          </a>
         </div>
 
-        <!-- Tab Content Areas -->
+        <!-- Stacked Content Areas -->
         <div class="services-content">
           <!-- 1. POP/MES Content -->
-          <div class="services-panel" id="panel-pop">
+          <div class="services-panel" id="tab-pop">
             <h3 class="panel-title">POP / MES (Manufacturing Execution System)</h3>
             <p class="panel-lead">Real-time data pipeline orchestration maximizing floor transparency and digital intelligence.</p>
 
             <div class="panel-section">
-              <h4>POP & MES Solution Overview</h4>
-              <p>ISSOFT's POP/MES serves as the central nervous system of smart factories. Moving beyond simple retrospective record-keeping, it gathers vital raw metrics (schedule-vs-actual output, downtime analyses, material yields, and WIP buffers) via high-speed floor networks. This enables plant managers to visualize floor bottlenecks instantly and coordinate proactive routing controls.</p>
+              <h4>POP(Point Of Production) & MES Overview</h4>
+              <p>ISSOFT's POP/MES system acts as the digital nervous system for modern manufacturing facilities. Far exceeding basic digital data recording, it integrates production floors through dedicated networks to capture vital raw metrics (target vs. actual output, downtime root causes, material yields, and product routing) in real time. By visualizing process bottlenecks, MICS enables immediate floor corrective controls.</p>
             </div>
 
             <div class="panel-section grid grid--2">
               <div>
-                <h4>Business Focus</h4>
-                <p>Establishing data-driven decision setups to enhance plant routing flexibilities and prevent administrative overheads. We provide shop-floor managers with complete visibility to detect and contain exceptions early, preserving production margins.</p>
+                <h4>Strategic Objectives</h4>
+                <p>Build real-time data-driven decision frameworks to increase production flexibility and prevent management overhead. We deliver high-fidelity floor dashboards so production supervisors can identify anomalies immediately and execute preventive adjustments.</p>
                 <ul class="panel-list">
-                  <li>Real-time WIP tracking ensuring highly precise shipping forecasts</li>
-                  <li>Early failure indicators to avoid unscheduled equipment shutdowns</li>
-                  <li>Comprehensive material-to-shipment Traceability logs</li>
-                  <li>Down-floor digital work instructions to eliminate human assembly errors</li>
+                  <li>Real-time tracking of work progress to secure precise shipping forecasts</li>
+                  <li>Predictive analytics on process parameters to prevent machine breakdowns</li>
+                  <li>Granular product traceability from raw material feed to final packaging</li>
+                  <li>On-floor digital work instruction routing to eliminate manual operator errors</li>
                 </ul>
               </div>
               <div>
-                <h4>Quantifiable Value Benefits</h4>
+                <h4>Quantitative Business Value</h4>
                 <div class="effect-cards">
-                  <div class="effect-card"><span class="effect-card__tag">Lead Time</span> 15%+ Reduction in Manufacturing Lead Time</div>
-                  <div class="effect-card"><span class="effect-card__tag">Inventory</span> Minimized Shop-Floor WIP Buffers</div>
-                  <div class="effect-card"><span class="effect-card__tag">Yield</span> Boosted Machine Utilization & Global Yields</div>
-                  <div class="effect-card"><span class="effect-card__tag">Cost</span> Significant Reduction in Tracking Overheads</div>
+                  <div class="effect-card"><span class="effect-card__tag">Lead Time</span> Reduce manufacturing lead times by 15%+</div>
+                  <div class="effect-card"><span class="effect-card__tag">Inventory</span> Minimize work-in-progress (WIP) buffers</div>
+                  <div class="effect-card"><span class="effect-card__tag">Yield</span> Boost overall equipment effectiveness (OEE)</div>
+                  <div class="effect-card"><span class="effect-card__tag">Cost</span> Cut management hours and achieve cost innovation</div>
                 </div>
               </div>
             </div>
@@ -123,8 +115,7 @@ const currentPath = '/en/services/';
             <div class="panel-section">
               <h4>Smart Factory Data Integration Architecture</h4>
               
-              <!-- Redrawn HTML/CSS Diagram based strictly on /images/0201.jpg (English) -->
-              <!-- Redrawn HTML/CSS Classic Diagram based strictly on /images/0201.jpg (English) -->
+              <!-- Redrawn HTML/CSS Diagram based strictly on /images/0201.jpg -->
               <div class="mes-pop-classic-container">
                 <div class="mes-pop-classic">
                   <!-- Left Text: MES -->
@@ -136,10 +127,10 @@ const currentPath = '/en/services/';
                     <div class="classic-connector"></div>
                   </div>
 
-                  <!-- Center Circle (Double circular outline like original image) -->
+                  <!-- Center Circle -->
                   <div class="classic-circle-outer">
                     <div class="classic-circle-inner">
-                      <span>Production<br/>Management</span>
+                      <span>Production<br/>System</span>
                     </div>
                   </div>
 
@@ -162,45 +153,45 @@ const currentPath = '/en/services/';
 
                 <!-- Description Text -->
                 <p class="classic-desc">
-                  We promise to secure corporate competitiveness through systematic and rational production activities,<br/>
-                  supporting more intuitive and transparent management through MES and POP system implementation.
+                  We support intuitive, transparent management through MES and POP integration,<br/>
+                  guaranteeing corporate competitiveness through systematic production methodologies.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- 2. MICS Content -->
-          <div class="services-panel" id="panel-mics">
+          <div class="services-panel" id="tab-mics">
             <h3 class="panel-title">MICS (Machine Interface & Control System)</h3>
-            <p class="panel-lead">Orchestrating heterogeneous equipment protocols to safeguard overall line utilization.</p>
+            <p class="panel-lead">Heterogeneous equipment protocol integration and predictive diagnostics securing floor uptime.</p>
 
             <div class="panel-section">
               <h4>MICS Overview</h4>
-              <p>MICS standardizes and syncs varying equipment configurations across older and newer machine types. It delivers unified web and mobile control dashboards, allowing engineering crews to perform predictive diagnoses on machinery anomalies and record continuous telemetry logs.</p>
+              <p>MICS is an intelligent platform designed to unify machine communication across varied vintages and manufacturers. By providing both desktop and mobile monitoring clients, MICS enables off-site engineers to check machine conditions and secures automated data assets of machine run histories.</p>
             </div>
 
             <div class="panel-section">
-              <h4>Core Strengths</h4>
+              <h4>MICS Key Value Drivers</h4>
               <div class="table-wrapper">
                 <table>
                   <thead>
                     <tr>
-                      <th style="width: 25%">Advantages</th>
-                      <th style="width: 75%">Technical Description</th>
+                      <th style="width: 25%">Key Drivers</th>
+                      <th style="width: 75%">Technical Deliverables</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><strong>PC-Based High-Speed Controls</strong></td>
-                      <td>Utilizes multi-threaded parallel algorithms and isolated control modules to secure fast fail-overs. Delivers hardware-level control reliability and execution speed on standard PC hardware.</td>
+                      <td><strong>PC-Based High-Speed Control</strong></td>
+                      <td>Runs multi-threaded parallel control loops and modular interface drivers to ensure quick fail-over recovery. Delivers control reliability equivalent to high-cost PLC hardware on cost-efficient PC platforms.</td>
                     </tr>
                     <tr>
-                      <td><strong>Protocol Flexibility</strong></td>
-                      <td>Equipped with mock simulation tools to test interface connections virtually before deployment. Fully supports OPC UA, Modbus, and various industry standard interfaces for seamless enterprise setups.</td>
+                      <td><strong>Heterogeneous Interface Flexibility</strong></td>
+                      <td>Features a built-in control model simulation tool to verify logic paths before hardware attachment. Native support for OPC UA, Modbus, and custom serial protocols ensures seamless upper-system links.</td>
                     </tr>
                     <tr>
-                      <td><strong>Rapid ROI</strong></td>
-                      <td>Features a built-in visual layout modeler, enabling crews to customize monitoring interfaces and control screens rapidly without coding from scratch.</td>
+                      <td><strong>Fast Business Value Return</strong></td>
+                      <td>Equipped with intuitive visual layout tools, enabling engineers to customize device monitoring screens and client dashboards rapidly without writing custom application codes from scratch.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -209,59 +200,57 @@ const currentPath = '/en/services/';
           </div>
 
           <!-- 3. L-CRIS Content -->
-          <div class="services-panel" id="panel-lcris">
-            <h3 class="panel-title">L-CRIS (Windows C/S Desktop Dev Framework)</h3>
-            <p class="panel-lead">Ultra-fast database rendering and automated Client/Server (C/S) UI components.</p>
+          <div class="services-panel" id="tab-lcris">
+            <h3 class="panel-title">L-CRIS (High-Speed Windows Client/Server Development Framework)</h3>
+            <p class="panel-lead">High-volume transactional logic processing coupled with automated Windows desktop UI generation.</p>
 
             <div class="panel-section">
-              <h4>L-CRIS Overview</h4>
-              <p>L-CRIS (Lean-based Creative Industry Solution) is ISSOFT's patented **Client/Server (C/S) based high-performance Windows desktop application framework**. Bypassing standard browser runtime bottlenecks, it leverages a native Windows client-side data binding engine. This allows database operators to filter millions of production entries, pivot grids, and map analysis charts with Zero-Lag.</p>
+              <h4>L-CRIS (Lean-based Creative Industry Solution) Overview</h4>
+              <p>Born from ISSOFT's core R&D program, L-CRIS is a high-performance Windows desktop application framework designed to process high-volume industrial transaction loads with zero latency. Bypassing the calculation limits of standard web browsers, L-CRIS features an optimized local data binding architecture. This enables managers to manipulate large data grids and build multi-dimensional reports instantly without UI lag.</p>
             </div>
 
             <div class="panel-section">
-              <h4>Key Functionalities</h4>
+              <h4>L-CRIS Core Architecture Features</h4>
 
               <div class="lcris-features">
                 <div class="lcris-feature">
-                  <h5>01 Legacy System Optimization</h5>
-                  <p>Upgrades aging C/S database entry screens, improving query rendering speeds without requiring extensive database redesigns.</p>
-                  <img src="/images/l_cris/1.png" alt="L-CRIS Data Bridge Console" loading="lazy" />
+                  <h5>01 Modernizing Legacy Environments with Minimal Custom Code</h5>
+                  <p>Ensures ultra-fast screen rendering speeds while minimizing expensive modifications to existing legacy views and database structures.</p>
+                  <img src="/images/l_cris/1.png" alt="L-CRIS high-speed data bridge" loading="lazy" />
                 </div>
 
                 <div class="lcris-feature">
-                  <h5>02 Interactive Pivot and Chart Automations</h5>
-                  <p>Translates bulk log tables into drag-and-drop Pivot tables instantly on Windows clients, compiling clean graphics for corporate reporting.</p>
+                  <h5>02 Pivot Multi-Dimensional Analysis & Charts</h5>
+                  <p>Transforms raw production databases into pivoting grids with a simple drag-and-drop, instantly rendering professional graphs for key business indicators.</p>
                   <div class="grid grid--2">
-                    <img src="/images/l_cris/2.png" alt="Pivot grid layout 1" loading="lazy" />
-                    <img src="/images/l_cris/3.png" alt="Pivot grid layout 2" loading="lazy" />
-                    <img src="/images/l_cris/4.png" alt="Visual graph 1" loading="lazy" />
-                    <img src="/images/l_cris/5.png" alt="Visual graph 2" loading="lazy" />
+                    <img src="/images/l_cris/2.png" alt="Pivot grid analysis 1" loading="lazy" />
+                    <img src="/images/l_cris/3.png" alt="Pivot grid analysis 2" loading="lazy" />
+                    <img src="/images/l_cris/4.png" alt="Automated chart display 1" loading="lazy" />
+                    <img src="/images/l_cris/5.png" alt="Automated chart display 2" loading="lazy" />
                   </div>
-                  <img src="/images/l_cris/6.png" alt="Massive table grid editor" style="margin-top: var(--space-md);" loading="lazy" />
+                  <img src="/images/l_cris/6.png" alt="High-capacity report grid layout" style="margin-top: var(--space-md);" loading="lazy" />
                 </div>
 
                 <div class="lcris-feature">
-                  <h5>03 Dynamic Query Mapping</h5>
-                  <p>Allows system admins to map dynamic columns and search parameters without writing custom code, saving configurations directly to local profiles.</p>
+                  <h5>03 Template-Based Screen Builders & Virtual Cloning</h5>
+                  <p>Allows developers to bind filter parameters and data columns inside visual popup maps without writing code, and clone complex layouts to create new metric views instantly.</p>
                   <div class="grid grid--2">
-                    <img src="/images/l_cris/7.png" alt="Query filter mapping" loading="lazy" />
-                    <img src="/images/l_cris/8.png" alt="Grid column mapper" loading="lazy" />
+                    <img src="/images/l_cris/7.png" alt="Filter condition editor" loading="lazy" />
+                    <img src="/images/l_cris/8.png" alt="Grid mapper interface" loading="lazy" />
                   </div>
                 </div>
 
                 <div class="lcris-feature">
-                  <h5>04 High-Concurrency Windows Optimization</h5>
-                  <p>Leverages native OS client resources to compile composite criteria across several linked tables, ensuring optimal desktop performance.</p>
-                  <img src="/images/l_cris/9.png" alt="Multi-dashboard structure" loading="lazy" />
+                  <h5>04 Multi-Criteria Query Optimization</h5>
+                  <p>Optimizes calculation loads by using native Windows OS resources to run complex multi-criteria filters and data associations simultaneously.</p>
+                  <img src="/images/l_cris/9.png" alt="L-CRIS composite dashboard view" loading="lazy" />
                 </div>
               </div>
             </div>
           </div>
 
-
-
           <!-- 5. SQM Content -->
-          <div class="services-panel" id="panel-sqm">
+          <div class="services-panel" id="tab-sqm">
             <h3 class="panel-title">Shop-floor Quality Management (SQM)</h3>
             <p class="panel-lead">Real-time quality log digitization and automated defect containment.</p>
 
@@ -289,33 +278,33 @@ const currentPath = '/en/services/';
               <h4>Core Quality Modules</h4>
               <div class="sqm-features-list">
                 <div class="sqm-item">
-                  <h5 class="sqm-item__title">QA Standard Settings</h5>
-                  <p class="sqm-item__desc">Mapped tolerance bounds (LSL, USL) corresponding to part numbers.</p>
+                  <h5 class="sqm-item__title">Inspection Standards</h5>
+                  <p class="sqm-item__desc">Maps target dimension tolerances (LSL, USL) and test check lists per part number.</p>
                 </div>
                 <div class="sqm-item">
-                  <h5 class="sqm-item__title">On-Floor Inspection</h5>
-                  <p class="sqm-item__desc">Optimized layouts for quick data input of batch logs.</p>
+                  <h5 class="sqm-item__title">Real-Time Mobile QA</h5>
+                  <p class="sqm-item__desc">Supports mobile-optimized entries for first-piece, runtime, and end-of-batch inspections.</p>
                 </div>
                 <div class="sqm-item">
-                  <h5 class="sqm-item__title">Traceability Logs</h5>
-                  <p class="sqm-item__desc">Binds barcode scan values to historical measurement metrics.</p>
+                  <h5 class="sqm-item__title">Traceability Assurance</h5>
+                  <p class="sqm-item__desc">Binds serial barcodes to inspect logs, enabling historical tracing on shipped items.</p>
                 </div>
                 <div class="sqm-item">
-                  <h5 class="sqm-item__title">Quality Analytics</h5>
-                  <p class="sqm-item__desc">Visualizes defect classifications and trend reports.</p>
+                  <h5 class="sqm-item__title">Analytics & SPC Charting</h5>
+                  <p class="sqm-item__desc">Visualizes statistical process indicators and defect root-cause statistics.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- 6. Web Custom Solution Content (Added Web Solution) -->
-          <div class="services-panel" id="panel-web">
-            <h3 class="panel-title">Custom Web Solutions (Web Custom Solution)</h3>
-            <p class="panel-lead">Cross-platform web standard architectures integrating enterprise databases.</p>
+          <div class="services-panel" id="tab-web">
+            <h3 class="panel-title">Custom Web Solutions</h3>
+            <p class="panel-lead">Cross-platform accessibility and unified business data flows built on modern web standards.</p>
 
             <div class="panel-section">
-              <h4>Web-Based Enterprise Solutions Overview</h4>
-              <p>We leverage modern web standards to engineer high-availability, responsive web business applications (Web ERP, Web monitoring consoles) that provide secure, cross-device access on mobile, tablet, and desktop viewports.</p>
+              <h4>Web Solutions Overview</h4>
+              <p>ISSOFT engineers robust, high-availability web systems allowing stakeholders to query business status and input records using any web browser. We guarantee full compatibility across varied devices (mobile, tablet, PC) and operating systems.</p>
             </div>
 
             <div class="panel-section grid grid--3">
@@ -349,54 +338,69 @@ const currentPath = '/en/services/';
   </section>
 
   <script is:inline>
-    function syncHashTab() {
-      const hash = window.location.hash;
-      if (hash) {
-        const id = hash.replace('#', '');
-        const radio = document.getElementById(id);
-        if (radio && radio.type === 'radio') {
-          radio.checked = true;
+    // Highlight active nav item on scroll using IntersectionObserver
+    const observerOptions = {
+      root: null,
+      rootMargin: '-150px 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const navItems = document.querySelectorAll('.services-nav__item');
+          navItems.forEach(item => {
+            if (item.getAttribute('href') === `#${id}`) {
+              item.classList.add('active');
+            } else {
+              item.classList.remove('active');
+            }
+          });
         }
-      }
-    }
-    syncHashTab();
-    window.addEventListener('hashchange', syncHashTab);
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.services-panel').forEach(panel => {
+      observer.observe(panel);
+    });
   </script>
 
   <Footer slot="footer" lang={lang} />
 </BaseLayout>
 
 <style>
-  /* Tabs layout css (Zero-JS) */
+  /* Stacked layout for services */
   .services-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: var(--space-2xl);
-    align-items: start;
-  }
-
-  .tab-input {
-    display: none;
-  }
-
-  /* Nav Links Stylings */
-  .services-nav {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
-    background: var(--color-bg-alt);
-    padding: var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  /* Nav Links Stylings - Fixed top sticky bar */
+  .services-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xs);
+    background: rgba(248, 250, 252, 0.85);
+    padding: var(--space-xs);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
+    position: sticky;
+    top: 72px; /* sticky header height offset */
+    z-index: 99;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
   }
 
   .services-nav__item {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-    padding: 14px var(--space-md);
+    gap: var(--space-xs);
+    padding: 10px var(--space-md);
     border-radius: var(--radius-md);
-    cursor: pointer;
+    text-decoration: none;
     font-weight: 600;
     color: var(--color-text-secondary);
     transition: all var(--transition-fast);
@@ -407,13 +411,24 @@ const currentPath = '/en/services/';
     color: var(--color-brand-orange);
   }
 
+  .services-nav__item.active {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  .services-nav__item.active .services-nav__icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    border-color: transparent;
+  }
+
   .services-nav__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-md);
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
     background-color: var(--color-white);
     color: var(--color-text-secondary);
     border: 1px solid var(--color-border);
@@ -422,9 +437,9 @@ const currentPath = '/en/services/';
   }
 
   .services-nav__icon svg {
-    width: 16px;
-    height: 16px;
-    stroke-width: 2;
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.5;
   }
 
   .services-nav__item:hover .services-nav__icon {
@@ -582,16 +597,24 @@ const currentPath = '/en/services/';
     }
   }
 
-  /* Content Panel Base Styling */
+  /* Content Panel Base Styling - Stacked Layout */
   .services-content {
-    background: var(--color-white);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    border: 1px solid var(--color-border-light);
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
   }
 
   .services-panel {
-    display: none;
+    display: block;
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: 140px; /* Offset for header and sticky nav */
     animation: fadeIn var(--transition-base) forwards;
   }
 
@@ -878,34 +901,6 @@ const currentPath = '/en/services/';
     margin: 0;
   }
 
-  /* Tabs CSS triggers */
-  #tab-pop:checked ~ .services-nav label[for="tab-pop"],
-  #tab-mics:checked ~ .services-nav label[for="tab-mics"],
-  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"],
-  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"],
-  #tab-web:checked ~ .services-nav label[for="tab-web"] {
-    background: var(--brand-gradient);
-    color: var(--color-white);
-  }
-
-  #tab-pop:checked ~ .services-nav label[for="tab-pop"] .services-nav__icon,
-  #tab-mics:checked ~ .services-nav label[for="tab-mics"] .services-nav__icon,
-  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"] .services-nav__icon,
-  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"] .services-nav__icon,
-  #tab-web:checked ~ .services-nav label[for="tab-web"] .services-nav__icon {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--color-white);
-    border-color: transparent;
-  }
-
-  #tab-pop:checked ~ .services-content #panel-pop,
-  #tab-mics:checked ~ .services-content #panel-mics,
-  #tab-lcris:checked ~ .services-content #panel-lcris,
-  #tab-sqm:checked ~ .services-content #panel-sqm,
-  #tab-web:checked ~ .services-content #panel-web {
-    display: block;
-  }
-
   .mb-lg {
     margin-bottom: var(--space-lg);
   }
@@ -916,27 +911,46 @@ const currentPath = '/en/services/';
   }
 
   @media (max-width: 1023px) {
-    .services-container {
-      grid-template-columns: 1fr;
-    }
-
     .services-nav {
-      flex-direction: row;
+      justify-content: flex-start;
       overflow-x: auto;
       white-space: nowrap;
-      padding: var(--space-sm);
+      padding: var(--space-xs);
+      top: 60px; /* sticky header height offset on mobile */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .services-nav::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for clean UI */
     }
 
     .services-nav__item {
-      flex: 1;
-      justify-content: center;
-      padding: 10px 16px;
+      padding: 8px var(--space-md);
+      flex-shrink: 0;
+    }
+
+    .services-panel {
+      padding: var(--space-xl) var(--space-md);
+      scroll-margin-top: 120px;
+    }
+
+    .sqm-features-list {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .sqm-item {
+      padding: var(--space-md);
     }
   }
 
   @media (max-width: 767px) {
     .services-content {
-      padding: var(--space-md);
+      padding: 0;
+    }
+
+    .services-panel {
+      padding: var(--space-lg) var(--space-sm);
     }
 
     .panel-title {
@@ -946,10 +960,6 @@ const currentPath = '/en/services/';
     .effect-cards,
     .sqm-features-list {
       grid-template-columns: 1fr;
-    }
-
-    .sqm-item {
-      padding: var(--space-md);
     }
   }
 </style>

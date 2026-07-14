@@ -34,63 +34,56 @@ const currentPath = '/services/';
     <div class="container">
       <h2 class="sr-only" id="services-main-title">솔루션 목록</h2>
 
-      <!-- CSS Tabs implementation (Zero-JS) -->
+      <!-- Sticky Navigation Bar & Stacked Panels -->
       <div class="services-container">
-        <!-- Radio inputs for active tab -->
-        <input type="radio" name="service-tab" id="tab-pop" class="tab-input" checked />
-        <input type="radio" name="service-tab" id="tab-mics" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-lcris" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-sqm" class="tab-input" />
-        <input type="radio" name="service-tab" id="tab-web" class="tab-input" />
-
-        <!-- Tab Labels / Navigation -->
+        <!-- Tab Links / Navigation -->
         <div class="services-nav">
-          <label for="tab-pop" class="services-nav__item">
+          <a href="#tab-pop" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M7 12v4M17 8v4M10 6h4M10 18h4"/>
               </svg>
             </div>
             <span class="services-nav__text">POP / MES</span>
-          </label>
-          <label for="tab-mics" class="services-nav__item">
+          </a>
+          <a href="#tab-mics" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/>
               </svg>
             </div>
             <span class="services-nav__text">MICS 설비제어</span>
-          </label>
-          <label for="tab-lcris" class="services-nav__item">
+          </a>
+          <a href="#tab-lcris" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
             <span class="services-nav__text">L-CRIS 개발프레임</span>
-          </label>
-          <label for="tab-sqm" class="services-nav__item">
+          </a>
+          <a href="#tab-sqm" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/>
               </svg>
             </div>
             <span class="services-nav__text">현장 품질관리</span>
-          </label>
-          <label for="tab-web" class="services-nav__item">
+          </a>
+          <a href="#tab-web" class="services-nav__item">
             <div class="services-nav__icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
               </svg>
             </div>
             <span class="services-nav__text">웹기반 맞춤 솔루션</span>
-          </label>
+          </a>
         </div>
 
-        <!-- Tab Content Areas -->
+        <!-- Stacked Content Areas -->
         <div class="services-content">
           <!-- 1. POP/MES Content -->
-          <div class="services-panel" id="panel-pop">
+          <div class="services-panel" id="tab-pop">
             <h3 class="panel-title">POP / MES (생산시점 정보화 및 제조실행 통합 관리)</h3>
             <p class="panel-lead">실시간 데이터 파이프라인 구축을 통한 생산 프로세스 투명성 및 지능화 확보</p>
 
@@ -171,7 +164,7 @@ const currentPath = '/services/';
           </div>
 
           <!-- 2. MICS Content -->
-          <div class="services-panel" id="panel-mics">
+          <div class="services-panel" id="tab-mics">
             <h3 class="panel-title">MICS (지능형 설비 제어 및 모니터링 솔루션)</h3>
             <p class="panel-lead">이기종 설비 프로토콜 연동 및 예후 진단을 통한 공정 가동율 보장</p>
 
@@ -210,7 +203,7 @@ const currentPath = '/services/';
           </div>
 
           <!-- 3. L-CRIS Content -->
-          <div class="services-panel" id="panel-lcris">
+          <div class="services-panel" id="tab-lcris">
             <h3 class="panel-title">L-CRIS (윈도우 C/S 기반 초고속 데이터 제어 프레임워크)</h3>
             <p class="panel-lead">대용량 연산 고속 처리와 클라이언트-서버(C/S) UI 컴포넌트 자동화 결합</p>
 
@@ -259,10 +252,8 @@ const currentPath = '/services/';
             </div>
           </div>
 
-
-
           <!-- 5. SQM Content -->
-          <div class="services-panel" id="panel-sqm">
+          <div class="services-panel" id="tab-sqm">
             <h3 class="panel-title">현장 품질관리 시스템 (SQM)</h3>
             <p class="panel-lead">공정 품질 데이터의 실시간 자산화 및 불량 후공정 유출의 근원적 차단</p>
 
@@ -310,7 +301,7 @@ const currentPath = '/services/';
           </div>
 
           <!-- 6. Web Custom Solution Content (Added Web Solution) -->
-          <div class="services-panel" id="panel-web">
+          <div class="services-panel" id="tab-web">
             <h3 class="panel-title">웹기반 기업 맞춤형 솔루션 (Web Custom Solution)</h3>
             <p class="panel-lead">웹 표준에 맞춘 유연한 크로스플랫폼 접근성 및 비즈니스 데이터 유기적 통합</p>
 
@@ -350,54 +341,69 @@ const currentPath = '/services/';
   </section>
 
   <script is:inline>
-    function syncHashTab() {
-      const hash = window.location.hash;
-      if (hash) {
-        const id = hash.replace('#', '');
-        const radio = document.getElementById(id);
-        if (radio && radio.type === 'radio') {
-          radio.checked = true;
+    // Highlight active nav item on scroll using IntersectionObserver
+    const observerOptions = {
+      root: null,
+      rootMargin: '-150px 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const navItems = document.querySelectorAll('.services-nav__item');
+          navItems.forEach(item => {
+            if (item.getAttribute('href') === `#${id}`) {
+              item.classList.add('active');
+            } else {
+              item.classList.remove('active');
+            }
+          });
         }
-      }
-    }
-    syncHashTab();
-    window.addEventListener('hashchange', syncHashTab);
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.services-panel').forEach(panel => {
+      observer.observe(panel);
+    });
   </script>
 
   <Footer slot="footer" lang={lang} />
 </BaseLayout>
 
 <style>
-  /* Tabs layout css (Zero-JS) */
+  /* Stacked layout for services */
   .services-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: var(--space-2xl);
-    align-items: start;
-  }
-
-  .tab-input {
-    display: none;
-  }
-
-  /* Nav Links Stylings */
-  .services-nav {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
-    background: var(--color-bg-alt);
-    padding: var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  /* Nav Links Stylings - Fixed top sticky bar */
+  .services-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xs);
+    background: rgba(248, 250, 252, 0.85);
+    padding: var(--space-xs);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
+    position: sticky;
+    top: 72px; /* sticky header height offset */
+    z-index: 99;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
   }
 
   .services-nav__item {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-    padding: 14px var(--space-md);
+    gap: var(--space-xs);
+    padding: 10px var(--space-md);
     border-radius: var(--radius-md);
-    cursor: pointer;
+    text-decoration: none;
     font-weight: 600;
     color: var(--color-text-secondary);
     transition: all var(--transition-fast);
@@ -408,13 +414,24 @@ const currentPath = '/services/';
     color: var(--color-brand-orange);
   }
 
+  .services-nav__item.active {
+    background: var(--brand-gradient);
+    color: var(--color-white);
+  }
+
+  .services-nav__item.active .services-nav__icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    border-color: transparent;
+  }
+
   .services-nav__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-md);
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
     background-color: var(--color-white);
     color: var(--color-text-secondary);
     border: 1px solid var(--color-border);
@@ -423,9 +440,9 @@ const currentPath = '/services/';
   }
 
   .services-nav__icon svg {
-    width: 16px;
-    height: 16px;
-    stroke-width: 2;
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.5;
   }
 
   .services-nav__item:hover .services-nav__icon {
@@ -583,16 +600,24 @@ const currentPath = '/services/';
     }
   }
 
-  /* Content Panel Base Styling */
+  /* Content Panel Base Styling - Stacked Layout */
   .services-content {
-    background: var(--color-white);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    border: 1px solid var(--color-border-light);
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
   }
 
   .services-panel {
-    display: none;
+    display: block;
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: 140px; /* Offset for header and sticky nav */
     animation: fadeIn var(--transition-base) forwards;
   }
 
@@ -879,34 +904,6 @@ const currentPath = '/services/';
     margin: 0;
   }
 
-  /* Tabs CSS triggers */
-  #tab-pop:checked ~ .services-nav label[for="tab-pop"],
-  #tab-mics:checked ~ .services-nav label[for="tab-mics"],
-  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"],
-  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"],
-  #tab-web:checked ~ .services-nav label[for="tab-web"] {
-    background: var(--brand-gradient);
-    color: var(--color-white);
-  }
-
-  #tab-pop:checked ~ .services-nav label[for="tab-pop"] .services-nav__icon,
-  #tab-mics:checked ~ .services-nav label[for="tab-mics"] .services-nav__icon,
-  #tab-lcris:checked ~ .services-nav label[for="tab-lcris"] .services-nav__icon,
-  #tab-sqm:checked ~ .services-nav label[for="tab-sqm"] .services-nav__icon,
-  #tab-web:checked ~ .services-nav label[for="tab-web"] .services-nav__icon {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--color-white);
-    border-color: transparent;
-  }
-
-  #tab-pop:checked ~ .services-content #panel-pop,
-  #tab-mics:checked ~ .services-content #panel-mics,
-  #tab-lcris:checked ~ .services-content #panel-lcris,
-  #tab-sqm:checked ~ .services-content #panel-sqm,
-  #tab-web:checked ~ .services-content #panel-web {
-    display: block;
-  }
-
   .mb-lg {
     margin-bottom: var(--space-lg);
   }
@@ -917,21 +914,27 @@ const currentPath = '/services/';
   }
 
   @media (max-width: 1023px) {
-    .services-container {
-      grid-template-columns: 1fr;
-    }
-
     .services-nav {
-      flex-direction: row;
+      justify-content: flex-start;
       overflow-x: auto;
       white-space: nowrap;
-      padding: var(--space-sm);
+      padding: var(--space-xs);
+      top: 60px; /* sticky header height offset on mobile */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .services-nav::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for clean UI */
     }
 
     .services-nav__item {
-      flex: 1;
-      justify-content: center;
-      padding: 10px 16px;
+      padding: 8px var(--space-md);
+      flex-shrink: 0;
+    }
+
+    .services-panel {
+      padding: var(--space-xl) var(--space-md);
+      scroll-margin-top: 120px;
     }
 
     .sqm-features-list {
@@ -946,7 +949,11 @@ const currentPath = '/services/';
 
   @media (max-width: 767px) {
     .services-content {
-      padding: var(--space-md);
+      padding: 0;
+    }
+
+    .services-panel {
+      padding: var(--space-lg) var(--space-sm);
     }
 
     .panel-title {
