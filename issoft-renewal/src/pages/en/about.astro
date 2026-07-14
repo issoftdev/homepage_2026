@@ -61,6 +61,39 @@ const visions = [
     desc: 'Drive real financial margins for clients by reducing material scrap and blocking defect escapes.',
   },
 ];
+
+const certifications = [
+  {
+    title: 'ISO 9001:2015 Quality Management',
+    desc: 'Official certification for compliance with international quality management system standards in software development and supply.',
+    org: 'Certified by: ICR (International Certification Registrar)',
+    icon: 'shield',
+  },
+  {
+    title: 'Main-Biz (Management Innovation)',
+    desc: 'Officially recognized as an innovative company with verified growth potential through comprehensive management innovations.',
+    org: 'Certified by: Ministry of SMEs and Startups (MSS)',
+    icon: 'chart',
+  },
+  {
+    title: 'Venture Business Certification',
+    desc: 'Certified as an innovative venture business with outstanding technical competitiveness and high growth potential.',
+    org: 'Certified by: Korea Venture Business Association / KIBO',
+    icon: 'cpu',
+  },
+  {
+    title: 'R&D Department Accreditation',
+    desc: 'Official authorization for dedicated R&D department focused on developing core industrial software and solution advances.',
+    org: 'Accredited by: Korea Industrial Technology Association (KOITA)',
+    icon: 'lightbulb',
+  },
+  {
+    title: 'L-CRIS Software Copyright',
+    desc: 'Exclusive copyright registration for the high-speed, large-capacity industrial software development framework.',
+    org: 'Registered at: Korea Copyright Commission (No. C-2014-018475)',
+    icon: 'users',
+  },
+];
 ---
 
 <BaseLayout
@@ -223,6 +256,29 @@ const visions = [
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="section section--alt" aria-labelledby="cert-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="cert-title">Certifications & Intellectual Property</h2>
+        <p class="section__subtitle">Core credentials proving ISSOFT's engineering competence and quality management standards.</p>
+      </div>
+
+      <div class="cert-grid fade-in">
+        {certifications.map((c) => (
+          <div class="cert-card">
+            <div class="cert-card__icon">
+              <Fragment set:html={iconMap[c.icon]} />
+            </div>
+            <h3 class="cert-card__title">{c.title}</h3>
+            <p class="cert-card__desc">{c.desc}</p>
+            <span class="cert-card__org">{c.org}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -750,6 +806,87 @@ const visions = [
 
     .org-tree-subnodes::before {
       bottom: 28px;
+    }
+  }
+
+  /* Certifications section styling */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .cert-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-brand-orange-light);
+  }
+
+  .cert-card__icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(255, 122, 0, 0.1), rgba(255, 199, 0, 0.1));
+    color: var(--color-brand-orange);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .cert-card__icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cert-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    word-break: keep-all;
+  }
+
+  .cert-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+    word-break: keep-all;
+  }
+
+  .cert-card__org {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-brand-orange);
+    background-color: rgba(255, 122, 0, 0.05);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  /* Responsive styling for certifications */
+  @media (max-width: 1023px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

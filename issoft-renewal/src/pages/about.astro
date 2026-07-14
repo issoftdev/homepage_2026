@@ -61,6 +61,39 @@ const visions = [
     desc: '원자재 손실 절감, 품질 유출 차단 등 현업 중심의 실효성 높은 제조 인프라 구축으로 실질적 경영 가치를 창조합니다.',
   },
 ];
+
+const certifications = [
+  {
+    title: 'ISO 9001:2015 품질경영인증',
+    desc: '품질 경영 시스템의 국제 표준을 준수하는 소프트웨어 개발 및 공급 부문 공식 인증',
+    org: '인증기관: ICR (International Certification Registrar)',
+    icon: 'shield',
+  },
+  {
+    title: '경영혁신형 중소기업 (Main-Biz)',
+    desc: '마케팅, 조직, 프로세스 등 다방면의 경영 혁신을 통해 성장 가능성을 공인받은 혁신기업',
+    org: '인증기관: 중소벤처기업부',
+    icon: 'chart',
+  },
+  {
+    title: '벤처기업 확인 (혁신성장유형)',
+    desc: '독보적인 기술 경쟁력과 비즈니스 성장 잠재력을 공인받은 기술성 벤처인증 기업',
+    org: '인증기관: 기술보증기금 / 벤처기업확인기관',
+    icon: 'cpu',
+  },
+  {
+    title: '연구개발전담부서 인정',
+    desc: '지속적인 스마트공장 원천기술 연구 및 맞춤 솔루션 고도화를 위한 전용 연구 조직 운영',
+    org: '인증기관: 한국산업기술진흥협회 (KOITA)',
+    icon: 'lightbulb',
+  },
+  {
+    title: 'L-CRIS 프로그램 저작권',
+    desc: '초고속 대용량 산업용 프레임워크 L-CRIS 솔루션의 소프트웨어 지적재산권 독점 등록',
+    org: '등록기관: 한국저작권위원회 (등록번호: C-2014-018475)',
+    icon: 'users',
+  },
+];
 ---
 
 <BaseLayout
@@ -223,6 +256,29 @@ const visions = [
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="section section--alt" aria-labelledby="cert-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="cert-title">인증 및 지식재산권</h2>
+        <p class="section__subtitle">이즈소프트의 공인된 기술력과 엄격한 품질 관리 표준을 입증하는 주요 인증 내역입니다.</p>
+      </div>
+
+      <div class="cert-grid fade-in">
+        {certifications.map((c) => (
+          <div class="cert-card">
+            <div class="cert-card__icon">
+              <Fragment set:html={iconMap[c.icon]} />
+            </div>
+            <h3 class="cert-card__title">{c.title}</h3>
+            <p class="cert-card__desc">{c.desc}</p>
+            <span class="cert-card__org">{c.org}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -750,6 +806,87 @@ const visions = [
 
     .org-tree-subnodes::before {
       bottom: 28px;
+    }
+  }
+
+  /* Certifications section styling */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .cert-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-brand-orange-light);
+  }
+
+  .cert-card__icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(255, 122, 0, 0.1), rgba(255, 199, 0, 0.1));
+    color: var(--color-brand-orange);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .cert-card__icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cert-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    word-break: keep-all;
+  }
+
+  .cert-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+    word-break: keep-all;
+  }
+
+  .cert-card__org {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-brand-orange);
+    background-color: rgba(255, 122, 0, 0.05);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  /* Responsive styling for certifications */
+  @media (max-width: 1023px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
